@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dreamscape - IA para Edición de Video Profesional</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Open+Sans:wght@300;400;600&display=swap');
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --electric-blue:#00FFFF;--neon-purple:#BF00FF;--fluo-green:#39FF14;
+    --bg-primary:#000000;--bg-secondary:#0a0a0f;--bg-card:rgba(255,255,255,0.03);
+    --text-primary:#ffffff;--text-secondary:#ccc;--text-muted:#888;
+    --gradient-primary:linear-gradient(135deg,#00FFFF,#BF00FF);
+    --gradient-accent:linear-gradient(90deg,#00FFFF,#BF00FF,#39FF14);
+    --border-subtle:rgba(0,255,255,0.15);--glow-blue:0 0 30px rgba(0,255,255,0.3)
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Open Sans',sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+  a{color:var(--electric-blue);text-decoration:none;transition:color .3s}
+  a:hover{color:var(--neon-purple)}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+  .section{padding:100px 0;position:relative}
+  .section-tag{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--neon-purple);letter-spacing:4px;text-transform:uppercase;margin-bottom:8px;display:block}
+  .section-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:42px;color:var(--electric-blue);margin-bottom:10px}
+  .section-desc{color:var(--text-muted);font-size:16px;max-width:600px;margin-bottom:40px}
+  .pill{display:inline-block;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:600}
+  .pill-blue{background:rgba(0,255,255,.12);color:var(--electric-blue);border:1px solid rgba(0,255,255,.25)}
+  .pill-purple{background:rgba(191,0,255,.12);color:var(--neon-purple);border:1px solid rgba(191,0,255,.25)}
+  .pill-green{background:rgba(57,255,20,.12);color:var(--fluo-green);border:1px solid rgba(57,255,20,.25)}
+  .service-card,.about-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:20px;padding:35px 25px;text-align:center;transition:all .4s;backdrop-filter:blur(10px)}
+  .service-card:hover,.about-card:hover{border-color:var(--electric-blue);transform:translateY(-5px);box-shadow:0 10px 40px rgba(0,255,255,.1)}
+  .about-card{border-radius:16px;padding:30px 20px}
+  .portfolio-item{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:1;border:1px solid var(--border-subtle);transition:all .4s;background:var(--bg-card)}
+  .portfolio-item:hover{border-color:var(--electric-blue);box-shadow:0 5px 25px rgba(0,255,255,.1)}
+  .portfolio-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .portfolio-item:hover img{transform:scale(1.08)}
+  .portfolio-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,255,255,.1);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
+  .portfolio-item:hover .portfolio-overlay{opacity:1}
+  .portfolio-info{position:absolute;bottom:0;left:0;right:0;padding:15px;background:linear-gradient(transparent,rgba(0,0,0,.9))}
+  .portfolio-info h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:#fff}
+  .portfolio-info span{font-size:11px;color:var(--electric-blue)}
+  .btn-primary{display:inline-block;padding:14px 36px;background:var(--gradient-primary);color:#000;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;box-shadow:var(--glow-blue);transition:transform .3s,box-shadow .3s;border:none;cursor:pointer}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(0,255,255,.5)}
+  .btn-outline{display:inline-block;padding:14px 36px;border:2px solid var(--electric-blue);color:var(--electric-blue);border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:16px;transition:all .3s;background:transparent;cursor:pointer}
+  .btn-outline:hover{background:rgba(0,255,255,.1);transform:translateY(-2px)}
+  .pricing-table{width:100%;max-width:750px;margin:0 auto;border-collapse:collapse;border-radius:16px;overflow:hidden}
+  .pricing-table th{background:rgba(0,255,255,.08);padding:14px 16px;color:var(--electric-blue);font-family:'Montserrat',sans-serif;font-size:14px;border:1px solid var(--border-subtle)}
+  .pricing-table td{padding:12px 16px;border:1px solid var(--border-subtle);color:var(--text-secondary);font-size:13px}
+  .pricing-table tr:nth-child(even){background:rgba(255,255,255,.02)}
+  .pricing-table td:first-child{font-weight:600;text-align:left}
+  .pricing-table td:nth-child(2),.pricing-table td:nth-child(3){color:var(--fluo-green);font-weight:700}
+  .pricing-table td:nth-child(4){color:var(--neon-purple);font-weight:700}
+  .contact-item{display:flex;align-items:center;gap:12px;margin:10px 0}
+  .contact-item span:first-child{font-size:22px;min-width:35px;text-align:center}
+  .contact-item a{color:var(--text-secondary);font-size:16px}
+  .contact-item a:hover{color:var(--electric-blue)}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+  .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto}
+  input,textarea{padding:12px 16px;background:rgba(255,255,255,.05);border:1px solid var(--border-subtle);border-radius:8px;color:#fff;font-size:14px;outline:none;transition:border-color .3s;font-family:'Open Sans',sans-serif;width:100%}
+  input:focus,textarea:focus{border-color:var(--electric-blue);box-shadow:0 0 15px rgba(0,255,255,.1)}
+  .form-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:30px;max-width:600px;margin:30px auto 0}
+  @media(max-width:1024px){
+    .services-grid,.portfolio-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:768px){
+    .services-grid,.portfolio-grid{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    .section-title{font-size:32px}
+    .hero h1{font-size:48px}
+  }
+  @media(max-width:480px){
+    .about-grid{grid-template-columns:1fr}
+    .section{padding:60px 0}
+  }
+  @media print{(.pricing-table td:nth-child(4){print-color-adjust:exact})}
+</style>
+</head>
+<body>
+
+<nav style="position:fixed;top:0;width:100%;z-index:1000;padding:15px 0;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-subtle)">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+    <span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:3px">DREAMSCAPE</span>
+    <div class="nav-links" style="display:flex;gap:25px;align-items:center">
+      <a href="#servicios" style="color:var(--text-muted);font-size:14px;transition:color .3s">Servicios</a>
+      <a href="#portfolio" style="color:var(--text-muted);font-size:14px">Portfolio</a>
+      <a href="#nosotros" style="color:var(--text-muted);font-size:14px">Nosotros</a>
+      <a href="#precios" style="color:var(--text-muted);font-size:14px">Precios</a>
+      <a href="#contacto" style="padding:8px 20px;background:var(--gradient-primary);color:#000;border-radius:50px;font-weight:700;font-size:13px">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(135deg,#000,#0a0a0f 50%,#1a0a2e 100%);overflow:hidden">
+  <div style="position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(0,255,255,.05) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(191,0,255,.05) 0%,transparent 50%)"></div>
+  <div style="position:relative;z-index:1" class="container">
+    <h1 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(48px,8vw,96px);background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:8px;margin-bottom:15px">DREAMSCAPE</h1>
+    <div style="width:80px;height:4px;background:var(--gradient-accent);margin:15px auto;border-radius:2px"></div>
+    <p style="font-size:clamp(18px,3vw,28px);color:rgba(255,255,255,.85);font-weight:300;letter-spacing:2px;margin-bottom:25px">IA para Edición de Video Profesional</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:30px">
+      <span class="pill pill-blue">⚡ Automatización</span>
+      <span class="pill pill-purple">🎨 Creatividad</span>
+      <span class="pill pill-green">🚀 Velocidad</span>
+    </div>
+    <p style="color:var(--text-muted);font-style:italic;margin-bottom:35px;font-size:18px">Donde la creatividad humana se encuentra con el poder de la inteligencia artificial</p>
+    <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+      <a href="#portfolio" class="btn-primary">Ver Portfolio</a>
+      <a href="#contacto" class="btn-outline">Cotizar Ahora</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicios" style="background:var(--bg-secondary)">
+  <div class="container" style="text-align:center">
+    <span class="section-tag">Servicios</span>
+    <h2 class="section-title">Triple Poder de la IA</h2>
+    <p class="section-desc" style="margin:0 auto 50px">Automatización, velocidad y creatividad impulsados por inteligencia artificial para llevar tu edición al siguiente nivel.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div style="font-size:48px;margin-bottom:15px">🤖</div>
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:var(--electric-blue);margin-bottom:15px">Automatización Inteligente</h3>
+        <ul style="list-style:none;text-align:left;color:var(--text-secondary);font-size:14px">
+          <li style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)">▸ Detección automática de escenas</li>
+          <li style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)">▸ Corrección de color asistida por IA</li>
+          <li style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)">▸ Estabilización de video automática</li>
+          <li style="padding:7px 0">▸ Reconocimiento facial inteligente</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div style="font-size:48px;margin-bottom:15px">⚡</div>
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:var(--electric-blue);margin-bottom:15px">Flujo de Trabajo Acelerado</h3>
+        <ul style="list-style:none;text-align:left;color:var(--text-secondary);font-size:14px">
+          <li style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)">▸ Búsqueda visual por contenido</li>
+          <li style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)">▸ Sugerencias de edición contextual</li>
+          <li style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)">▸ Generación automática de B-roll</li>
+          <li style="padding:7px 0">▸ Optimización para render rápido</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div style="font-size:48px;margin-bottom:15px">🎨</div>
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:var(--electric-blue);margin-bottom:15px">Creatividad Potenciada</h3>
+        <ul style="list-style:none;text-align:left;color:var(--text-secondary);font-size:14px">
+          <li style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)">▸ Efectos desde prompts de texto</li>
+          <li style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)">▸ Restauración de video antiguo</li>
+          <li style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)">▸ Super-resolución con IA</li>
+          <li style="padding:7px 0">▸ Animación de fotos estáticas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="portfolio" style="background:var(--bg-primary)">
+  <div class="container" style="text-align:center">
+    <span class="section-tag">Portfolio</span>
+    <h2 class="section-title">Trabajos Destacados</h2>
+    <p class="section-desc" style="margin:0 auto 50px">Proyectos realizados por nuestro equipo, incluyendo el talento de <strong style="color:var(--electric-blue)">Highway43</strong> — Oscar Lugo Productions.</p>
+    <div class="portfolio-grid" id="portfolioGrid"></div>
+    <a href="https://www.behance.net/highway43" target="_blank" style="display:inline-block;margin-top:35px;padding:12px 30px;border:2px solid var(--neon-purple);color:var(--neon-purple);border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;transition:all .3s">Ver todos en Behance →</a>
+  </div>
+</section>
+
+<section class="section" id="nosotros" style="background:var(--bg-secondary)">
+  <div class="container" style="text-align:center">
+    <span class="section-tag">Nosotros</span>
+    <h2 class="section-title">¿Por Qué Dreamscape?</h2>
+    <p class="section-desc" style="margin:0 auto 50px">Combinamos edición profesional con inteligencia artificial para ofrecer resultados que marcan la diferencia.</p>
+    <div class="about-grid">
+      <div class="about-card"><div style="font-size:36px;margin-bottom:10px">💡</div><h4 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--electric-blue);margin-bottom:8px">Innovación Constante</h4><p style="color:var(--text-muted);font-size:13px">Algoritmos actualizados con lo último en IA</p></div>
+      <div class="about-card"><div style="font-size:36px;margin-bottom:10px">⚡</div><h4 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--electric-blue);margin-bottom:8px">Velocidad Industrial</h4><p style="color:var(--text-muted);font-size:13px">Horas de video procesadas en minutos</p></div>
+      <div class="about-card"><div style="font-size:36px;margin-bottom:10px">🎯</div><h4 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--electric-blue);margin-bottom:8px">Precisión Profesional</h4><p style="color:var(--text-muted);font-size:13px">Calidad de estudio con facilidad de uso</p></div>
+      <div class="about-card"><div style="font-size:36px;margin-bottom:10px">🔒</div><h4 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--electric-blue);margin-bottom:8px">Seguridad Total</h4><p style="color:var(--text-muted);font-size:13px">Archivos privados y protegidos siempre</p></div>
+      <div class="about-card"><div style="font-size:36px;margin-bottom:10px">👥</div><h4 style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--electric-blue);margin-bottom:8px">Equipo Especializado</h4><p style="color:var(--text-muted);font-size:13px">Editores + Ingenieros en IA</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="precios" style="background:var(--bg-primary)">
+  <div class="container" style="text-align:center">
+    <span class="section-tag">Planes</span>
+    <h2 class="section-title">Flexibles para Tu Negocio</h2>
+    <p class="section-desc" style="margin:0 auto 50px">Elige el plan que mejor se adapte a tu volumen de trabajo y necesidades.</p>
+    <div style="overflow-x:auto">
+      <table class="pricing-table">
+        <tr><th style="text-align:left">Plan</th><th>Básico</th><th>Profesional</th><th>Empresa</th></tr>
+        <tr><td>Precio</td><td>€299/mes</td><td>€799/mes</td><td>Personalizado</td></tr>
+        <tr><td>Procesamiento</td><td>50h/mes</td><td>200h/mes</td><td>Ilimitado</td></tr>
+        <tr><td>Automatización</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Análisis</td><td>Básico</td><td>Avanzado</td><td>Premium</td></tr>
+        <tr><td>Soporte</td><td>Email</td><td>Prioridad</td><td>24/7</td></tr>
+        <tr><td>Usuarios</td><td>3</td><td>10</td><td>Ilimitado</td></tr>
+      </table>
+    </div>
+    <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-top:25px">
+      <span style="display:inline-block;padding:10px 22px;background:rgba(0,255,255,.08);border:1px solid rgba(0,255,255,.2);border-radius:10px"><span style="color:var(--electric-blue);font-weight:700">💡 Prueba Gratis 14 Días</span><br><span style="color:var(--text-muted);font-size:12px">Sin tarjeta de crédito</span></span>
+      <span style="display:inline-block;padding:10px 22px;background:rgba(191,0,255,.08);border:1px solid rgba(191,0,255,.2);border-radius:10px"><span style="color:var(--neon-purple);font-weight:700">📞 Plan Empresarial</span><br><span style="color:var(--text-muted);font-size:12px">Contáctanos</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contacto" style="background:var(--bg-secondary)">
+  <div class="container" style="text-align:center">
+    <span class="section-tag">Contacto</span>
+    <h2 class="section-title">Conecta con Nosotros</h2>
+    <p class="section-desc" style="margin:0 auto 40px">Estamos listos para transformar tu flujo de trabajo. Háblanos de tu proyecto.</p>
+    <div style="display:flex;gap:40px;justify-content:center;flex-wrap:wrap;align-items:center">
+      <div style="text-align:center">
+        <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,rgba(0,255,255,.08),rgba(191,0,255,.08));border:2px solid rgba(0,255,255,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 15px"><span style="font-size:36px">✦</span></div>
+        <p style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:3px">DREAMSCAPE</p>
+      </div>
+      <div style="text-align:left">
+        <div class="contact-item"><span>🌐</span><a href="https://www.dreamscape.ai">www.dreamscape.ai</a></div>
+        <div class="contact-item"><span>📧</span><a href="mailto:hola@dreamscape.ai">hola@dreamscape.ai</a></div>
+        <div class="contact-item"><span>📱</span><a href="https://wa.me/34600000000">+34 600 000 000</a></div>
+        <div class="contact-item"><span>📸</span><a href="https://instagram.com/dreamscape.ai">@dreamscape.ai</a></div>
+        <div class="contact-item"><span>💼</span><a href="https://linkedin.com/company/dreamscape">Dreamscape IA</a></div>
+      </div>
+    </div>
+    <div class="form-card">
+      <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--electric-blue);margin-bottom:20px;font-size:18px">Solicita una cotización</p>
+      <form style="display:flex;flex-direction:column;gap:12px">
+        <input type="text" placeholder="Tu nombre">
+        <input type="email" placeholder="Tu email">
+        <textarea placeholder="Cuéntanos sobre tu proyecto..." rows="3" style="resize:vertical"></textarea>
+        <button type="submit" class="btn-primary" style="width:100%;padding:12px 24px;font-size:15px">Enviar Mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer style="text-align:center;padding:30px 20px;border-top:1px solid var(--border-subtle);background:var(--bg-primary)">
+  <p style="color:var(--text-muted);font-size:13px;margin-bottom:8px">© 2026 Dreamscape. Todos los derechos reservados.</p>
+  <p style="color:var(--text-muted);font-style:italic;font-size:14px">Donde la creatividad humana se encuentra con el poder de la inteligencia artificial</p>
+</footer>
+
+<script>
+const projects=[
+  {title:"Showreel 2026",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/6e67cc246797387.Y3JvcCw5MjAsNzIwLDAsMA.png",url:"https://www.behance.net/gallery/246797387/Showreel-2026-Video-Editor-para-Marcas-y-Social-Media"},
+  {title:"Reels de Alto Impacto",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/b52bc2201723559.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/201723559/Reels-de-Alto-Impacto-Edicion-para-Instagram-y-TikTok"},
+  {title:"Reel Publicitario",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/d3dc17201723443.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/201723443/Reel-Publicitario-para-Redes-Sociales-Marca-y-Alcance"},
+  {title:"Diseño para Redes Sociales",cat:"Diseño",img:"https://mir-s3-cdn-cf.behance.net/projects/404/ae9088193273925.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273925/Diseno-para-Redes-Sociales-Piezas-Visuales-para-Marca"},
+  {title:"Carrusel Estratégico",cat:"Diseño",img:"https://mir-s3-cdn-cf.behance.net/projects/404/3c6c8e193273879.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273879/Carrusel-para-Redes-Sociales-Diseno-Estratgico"},
+  {title:"Ilustración Digital Branding",cat:"Ilustración",img:"https://mir-s3-cdn-cf.behance.net/projects/404/d1121f193273453.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273453/Ilustracion-Digital-Arte-Visual-para-Branding-y-Marca"},
+  {title:"Ilustración Identidad",cat:"Ilustración",img:"https://mir-s3-cdn-cf.behance.net/projects/404/6cf2d4193273345.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273345/Ilustracion-Digital-Desarrollo-Visual-para-Identidad"},
+  {title:"Diseño de Logotipo",cat:"Branding",img:"https://mir-s3-cdn-cf.behance.net/projects/404/264ea3193273285.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273285/Diseno-de-Logotipo-Identidad-Visual-para-tu-Marca"},
+  {title:"Piezas Gráficas Social Media",cat:"Diseño",img:"https://mir-s3-cdn-cf.behance.net/projects/404/ea86b0193273177.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273177/Piezas-Graficas-para-Social-Media-Diseno-Visual"},
+  {title:"Ilustración Conceptual",cat:"Ilustración",img:"https://mir-s3-cdn-cf.behance.net/projects/404/b4b8da193273051.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273051/Ilustracion-Conceptual-Estilo-Grafico-y-Arte-Original"},
+  {title:"Reel Promocional",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/f82e42193091129.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193091129/Edicion-de-Reel-Promocional-Visibilidad-de-Marca"},
+  {title:"Reel 2024",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/99b7dc193086305.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193086305/reel-2024"}
+];
+const grid=document.getElementById('portfolioGrid');
+projects.forEach(p=>{
+  const el=document.createElement('div');
+  el.className='portfolio-item';
+  el.innerHTML='<img src="'+p.img+'" alt="'+p.title+'" loading="lazy"><div class="portfolio-info"><h4>'+p.title+'</h4><span>'+p.cat+'</span></div><div class="portfolio-overlay"><span style="color:#000;font-weight:700;font-size:14px;background:var(--gradient-primary);padding:8px 16px;border-radius:8px">Ver proyecto</span></div>';
+  el.addEventListener('click',()=>window.open(p.url,'_blank'));
+  grid.appendChild(el);
+});
+document.querySelector('form').addEventListener('submit',function(e){e.preventDefault();alert('¡Gracias por tu interés! Te contactaremos pronto.');this.reset();});
+</script>
+</body>
+</html>

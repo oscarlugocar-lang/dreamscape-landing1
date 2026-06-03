@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200">
+  <defs>
+    <linearGradient id="gradMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFFF"/>
+      <stop offset="50%" style="stop-color:#BF00FF"/>
+      <stop offset="100%" style="stop-color:#39FF14"/>
+    </linearGradient>
+    <linearGradient id="gradH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00FFFF"/>
+      <stop offset="70%" style="stop-color:#BF00FF"/>
+      <stop offset="100%" style="stop-color:#39FF14"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="600" height="200" rx="16" fill="#0a0a0f"/>
+
+  <!-- Portal / Vortex Icon -->
+  <circle cx="85" cy="100" r="58" fill="none" stroke="url(#gradH)" stroke-width="1.5" opacity="0.2"/>
+  <circle cx="85" cy="100" r="48" fill="none" stroke="url(#gradMain)" stroke-width="2" opacity="0.3"/>
+  <circle cx="85" cy="100" r="38" fill="none" stroke="url(#gradH)" stroke-width="2.5" opacity="0.4"/>
+  <circle cx="85" cy="100" r="28" fill="none" stroke="url(#gradMain)" stroke-width="3" opacity="0.6"/>
+  <circle cx="85" cy="100" r="18" fill="url(#gradMain)" opacity="0.8"/>
+  <circle cx="85" cy="100" r="8" fill="#fff" filter="url(#glow)"/>
+
+  <!-- Orbital rings -->
+  <ellipse cx="85" cy="100" rx="50" ry="20" fill="none" stroke="#00FFFF" stroke-width="1" opacity="0.3" transform="rotate(-30 85 100)"/>
+  <ellipse cx="85" cy="100" rx="50" ry="20" fill="none" stroke="#BF00FF" stroke-width="1" opacity="0.3" transform="rotate(30 85 100)"/>
+
+  <!-- Play triangle hint -->
+  <polygon points="78,88 78,112 98,100" fill="#0a0a0f" opacity="0.8"/>
+
+  <!-- DREAMSCAPE text -->
+  <text x="155" y="92" font-family="'Montserrat',Arial,sans-serif" font-weight="900" font-size="48" fill="url(#gradH)" letter-spacing="5">DREAMSCAPE</text>
+
+  <!-- Tagline -->
+  <text x="155" y="125" font-family="'Open Sans',Arial,sans-serif" font-weight="300" font-size="14" fill="#666" letter-spacing="3">IA · EDICIÓN · VIDEO · PROFESIONAL</text>
+
+  <!-- Divider -->
+  <line x1="155" y1="138" x2="550" y2="138" stroke="url(#gradMain)" stroke-width="1" opacity="0.3"/>
+
+  <!-- Small decorative dots -->
+  <circle cx="155" cy="155" r="2.5" fill="#00FFFF" opacity="0.5"/>
+  <circle cx="170" cy="155" r="2.5" fill="#BF00FF" opacity="0.5"/>
+  <circle cx="185" cy="155" r="2.5" fill="#39FF14" opacity="0.5"/>
+  <circle cx="200" cy="155" r="2" fill="#00FFFF" opacity="0.25"/>
+  <circle cx="215" cy="155" r="2" fill="#BF00FF" opacity="0.25"/>
+  <circle cx="230" cy="155" r="2" fill="#39FF14" opacity="0.25"/>
+</svg>

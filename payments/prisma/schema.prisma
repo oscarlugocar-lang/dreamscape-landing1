@@ -1,0 +1,52 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Customer {
+  id            String         @id @default(cuid())
+  email         String         @unique
+  name          String?
+  stripeId      String?        @map("stripe_id")
+  subscriptions Subscription[]
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+
+  @@map("customers")
+}
+
+model Subscription {
+  id             String    @id @default(cuid())
+  stripeId       String    @unique @map("stripe_id")
+  customerId     String    @map("customer_id")
+  customer       Customer  @relation(fields: [customerId], references: [id])
+  status         String
+  priceId        String    @map("price_id")
+  plan           String
+  currentPeriodStart DateTime @map("current_period_start")
+  currentPeriodEnd   DateTime @map("current_period_end")
+  cancelAtPeriodEnd  Boolean  @default(false) @map("cancel_at_period_end")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  @@map("subscriptions")
+}
+
+model Invoice {
+  id             String         @id @default(cuid())
+  stripeId       String         @unique @map("stripe_id")
+  subscriptionId String         @map("subscription_id")
+  subscription   Subscription   @relation(fields: [subscriptionId], references: [id])
+  amount         Int
+  currency       String         @default("eur")
+  status         String
+  paid           Boolean        @default(false)
+  invoiceUrl     String?        @map("invoice_url")
+  createdAt      DateTime       @default(now()) @map("created_at")
+
+  @@map("invoices")
+}

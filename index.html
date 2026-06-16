@@ -221,6 +221,10 @@
         <tr><td>Soporte</td><td>Email</td><td>Prioridad</td><td>24/7</td></tr>
         <tr><td>Usuarios</td><td>3</td><td>10</td><td>Ilimitado</td></tr>
       </table>
+      <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-top:20px">
+        <button onclick="stripeCheckout('basic')" class="btn-primary" style="font-size:14px;padding:12px 28px">Suscribirse Básico</button>
+        <button onclick="stripeCheckout('pro')" class="btn-primary" style="font-size:14px;padding:12px 28px;background:linear-gradient(135deg,#BF00FF,#00FFFF)">Suscribirse Profesional</button>
+      </div>
     </div>
     <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-top:25px">
       <span style="display:inline-block;padding:10px 22px;background:rgba(0,255,255,.08);border:1px solid rgba(0,255,255,.2);border-radius:10px"><span style="color:var(--electric-blue);font-weight:700">💡 Prueba Gratis 14 Días</span><br><span style="color:var(--text-muted);font-size:12px">Sin tarjeta de crédito</span></span>
@@ -353,7 +357,18 @@
   <p style="color:var(--text-muted);font-style:italic;font-size:14px">Donde la creatividad humana se encuentra con el poder de la inteligencia artificial</p>
 </footer>
 
+<script src="https://js.stripe.com/v3/"></script>
 <script>
+const stripe = Stripe('pk_test_PLACEHOLDER');
+const API_URL = 'https://dreamscape-payments.vercel.app';
+function stripeCheckout(plan) {
+  const prices = { basic: '', pro: '' };
+  fetch(`${API_URL}/api/create-checkout`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ priceId: prices[plan] }),
+  }).then(r => r.json()).then(d => { if (d.url) window.location.href = d.url; });
+}
+
 const projects=[
   {title:"Showreel 2026",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/6e67cc246797387.Y3JvcCw5MjAsNzIwLDAsMA.png",url:"https://www.behance.net/gallery/246797387/Showreel-2026-Video-Editor-para-Marcas-y-Social-Media"},
   {title:"Reels de Alto Impacto",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/b52bc2201723559.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/201723559/Reels-de-Alto-Impacto-Edicion-para-Instagram-y-TikTok"},

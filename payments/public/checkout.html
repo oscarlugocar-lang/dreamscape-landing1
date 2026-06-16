@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dreamscape — Suscripción</title>
+<script src="https://js.stripe.com/v3/"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #0f1119; color: #e8eaf0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .card { background: #1a1d2e; border: 1px solid #2a2e42; border-radius: 16px; padding: 40px; max-width: 480px; width: 100%; text-align: center; }
+  h1 { font-size: 24px; font-weight: 800; margin-bottom: 8px; background: linear-gradient(135deg, #6366f1, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  p { color: #9498b0; font-size: 14px; margin-bottom: 24px; }
+  .plan { background: #232738; border: 1px solid #2a2e42; border-radius: 12px; padding: 24px; margin: 12px 0; cursor: pointer; transition: all .2s; }
+  .plan:hover, .plan.selected { border-color: #6366f1; background: #6366f112; }
+  .plan h3 { font-size: 18px; font-weight: 700; }
+  .plan .price { font-size: 32px; font-weight: 800; color: #818cf8; margin: 8px 0; }
+  .plan .price span { font-size: 14px; color: #9498b0; }
+  .plan ul { list-style: none; font-size: 13px; color: #9498b0; }
+  .plan ul li { padding: 4px 0; }
+  .btn { width: 100%; padding: 14px; border-radius: 10px; border: none; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer; background: #6366f1; color: #fff; transition: all .2s; margin-top: 16px; }
+  .btn:hover { background: #818cf8; }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
+  .error { color: #ef4444; font-size: 13px; margin-top: 12px; }
+  .back { display: inline-block; margin-top: 16px; color: #9498b0; font-size: 13px; text-decoration: none; }
+  .back:hover { color: #e8eaf0; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Dreamscape</h1>
+  <p>Elige el plan que impulsará tu edición de video</p>
+  <div id="plans"></div>
+  <button class="btn" id="checkoutBtn" disabled>Suscribirse</button>
+  <div class="error" id="error"></div>
+  <a href="/" class="back">← Volver</a>
+</div>
+
+<script>
+const stripe = Stripe('pk_test_PLACEHOLDER');
+const API = 'https://dreamscape-payments.vercel.app';
+
+const PLANS = [
+  { id: 'basic', name: 'Básico', price: '€299/mes', priceId: '', desc: '50h/mes · Automatización · Soporte Email' },
+  { id: 'pro', name: 'Profesional', price: '€799/mes', priceId: '', desc: '200h/mes · Análisis Avanzado · Soporte Prioritario' },
+];
+
+let selected = null;
+
+function renderPlans() {
+  const el = document.getElementById('plans');
+  el.innerHTML = PLANS.map(p => `
+    <div class="plan" data-id="${p.id}">
+      <h3>${p.name}</h3>
+      <div class="price">${p.price}</div>
+      <p style="color:#9498b0;font-size:13px">${p.desc}</p>
+    </div>
+  `).join('');
+
+  el.querySelectorAll('.plan').forEach(div => {
+    div.addEventListener('click', () => {
+      el.querySelectorAll('.plan').forEach(d => d.classList.remove('selected'));
+      div.classList.add('selected');
+      selected = div.dataset.id;
+      document.getElementById('checkoutBtn').disabled = false;
+    });
+  });
+}
+
+document.getElementById('checkoutBtn').addEventListener('click', async () => {
+  if (!selected) return;
+  const btn = document.getElementById('checkoutBtn');
+  btn.disabled = true;
+  btn.textContent = 'Redirigiendo...';
+
+  try {
+    const plan = PLANS.find(p => p.id === selected);
+    const res = await fetch(`${API}/api/create-checkout`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ priceId: plan.priceId }),
+    });
+    const data = await res.json();
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      document.getElementById('error').textContent = data.error || 'Error al crear checkout';
+    }
+  } catch (e) {
+    document.getElementById('error').textContent = 'Error de conexión';
+  }
+  btn.disabled = false;
+  btn.textContent = 'Suscribirse';
+});
+
+renderPlans();
+</script>
+</body>
+</html>

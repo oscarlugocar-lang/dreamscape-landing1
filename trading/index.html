@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BinaryBoost - Inicia en Opciones Binarias con IQ Option | Guía para Principiantes</title>
+<title>BinaryBoost — Inicia en Opciones Binarias con IQ Option | Guía para Principiantes</title>
 <meta name="description" content="Descubre cómo empezar en opciones binarias. Guía simplificada para operar en IQ Option desde cero. Cuenta demo gratuita incluida.">
-<meta property="og:title" content="BinaryBoost - Inicia en Opciones Binarias con IQ Option">
+<meta property="og:title" content="BinaryBoost — Inicia en Opciones Binarias con IQ Option">
 <meta property="og:description" content="Guía simplificada para empezar en trading desde cero.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop&q=80">
 <meta property="og:type" content="website">
@@ -17,109 +17,146 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0A0A0A;--text:#FAFAFA;--text-sec:#A1A1AA;--green:#22C55E;--gold:#D4AF37;--border:rgba(255,255,255,.1);--radius:16px}
+
+:root{
+  --bg-primary:#0a0a0f;
+  --bg-secondary:#12121a;
+  --bg-card:#1a1a2e;
+  --bg-card-hover:#1e1e38;
+  --accent-violet:#8b5cf6;
+  --accent-violet-light:#a78bfa;
+  --accent-cyan:#06b6d4;
+  --accent-green:#22c55e;
+  --accent-orange:#f59e0b;
+  --text-primary:#f8fafc;
+  --text-secondary:#94a3b8;
+  --text-muted:#64748b;
+  --border:#1e293b;
+  --border-light:#2a2e42;
+  --gradient-accent:linear-gradient(135deg,#8b5cf6,#06b6d4);
+  --shadow-glow:0 0 30px rgba(139,92,246,0.15);
+  --radius-sm:6px;
+  --radius-md:10px;
+  --radius-lg:16px;
+  --radius-xl:24px;
+  --radius-full:9999px;
+  --transition:all 0.2s ease;
+  --font-sans:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono','Fira Code',monospace;
+  --max-width:1100px;
+}
+
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.container{max-width:1100px;margin:0 auto;padding:0 24px}
+body{font-family:var(--font-sans);background:var(--bg-primary);color:var(--text-primary);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
 a{color:inherit;text-decoration:none}
 
-.skip-link{position:absolute;top:-100px;left:16px;z-index:1000;padding:12px 20px;background:var(--green);color:#000;font-weight:700;border-radius:8px;transition:top .2s}
+.skip-link{position:absolute;top:-100px;left:16px;z-index:1000;padding:12px 20px;background:var(--gradient-accent);color:#fff;font-weight:700;border-radius:var(--radius-md);transition:top .2s}
 .skip-link:focus{top:16px}
 
-nav{position:fixed;top:0;width:100%;z-index:100;padding:16px 0;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-nav .container{display:flex;justify-content:space-between;align-items:center}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav .container{display:flex;justify-content:space-between;align-items:center;height:64px}
 .logo{font-weight:800;font-size:22px;letter-spacing:-.05em}
-.logo span{color:var(--green)}
-.nav-cta{background:var(--gold);color:var(--bg);padding:10px 22px;border-radius:999px;font-weight:600;font-size:14px;transition:transform .15s,background .2s}
-.nav-cta:hover{background:#e7c35a}
-.nav-cta:active{transform:scale(.95)}
+.logo-accent{background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
-.btn{display:inline-block;font-weight:600;font-size:16px;padding:14px 32px;border-radius:999px;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s;text-align:center}
+.nav-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--gradient-accent);color:#fff;padding:10px 22px;border-radius:var(--radius-full);font-weight:600;font-size:14px;transition:transform .15s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 40px rgba(139,92,246,.25)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:600;font-size:16px;padding:14px 32px;border-radius:var(--radius-full);border:none;cursor:pointer;transition:transform .15s,box-shadow .2s;text-align:center;font-family:inherit}
 .btn:active{transform:scale(.97)}
-.btn-green{background:var(--green);color:#fff;box-shadow:0 0 20px rgba(34,197,94,.3)}
-.btn-green:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(34,197,94,.5)}
-.btn-gold{background:var(--gold);color:var(--bg)}
-.btn-gold:hover{transform:translateY(-2px)}
-.btn-outline{background:transparent;border:2px solid var(--border);color:var(--text)}
-.btn-outline:hover{border-color:var(--green)}
+.btn-primary{background:var(--gradient-accent);color:#fff;box-shadow:var(--shadow-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(139,92,246,.25)}
+.btn-secondary{background:transparent;color:var(--text-primary);border:2px solid var(--border)}
+.btn-secondary:hover{border-color:var(--accent-violet);background:rgba(139,92,246,.05)}
+.btn-outline{background:transparent;border:2px solid var(--border);color:var(--text-primary)}
+.btn-outline:hover{border-color:var(--accent-violet);background:rgba(139,92,246,.05)}
 
-.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;position:relative;overflow:hidden;text-align:center}
-#mesh{position:absolute;inset:0;z-index:0;opacity:.25}
+.hero{min-height:100vh;display:flex;align-items:center;padding:64px 0 60px;position:relative;overflow:hidden;text-align:center}
+#mesh{position:absolute;inset:0;z-index:0;opacity:.35}
 .hero .container{position:relative;z-index:1}
-.tagline{display:inline-block;padding:8px 18px;background:rgba(212,175,55,.1);color:var(--gold);border:1px solid rgba(212,175,55,.3);border-radius:999px;font-size:14px;font-weight:500;margin-bottom:20px}
+.tagline{display:inline-block;padding:8px 18px;background:rgba(139,92,246,.1);color:var(--accent-violet-light);border:1px solid rgba(139,92,246,.25);border-radius:var(--radius-full);font-size:14px;font-weight:500;margin-bottom:20px}
 .hero h1{font-size:clamp(36px,7vw,72px);line-height:1.05;letter-spacing:-.04em;max-width:14ch;margin:0 auto}
-.hero h1 span{background:linear-gradient(90deg,var(--green),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{max-width:55ch;margin:20px auto 32px;color:var(--text-sec);font-size:18px;line-height:1.6}
-.hero-sub{color:var(--text-sec);font-size:13px;margin-top:12px}
+.hero h1 .gradient-text{background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{max-width:55ch;margin:20px auto 32px;color:var(--text-secondary);font-size:18px;line-height:1.6}
+.hero-sub{color:var(--text-muted);font-size:13px;margin-top:12px}
 
 .counter-bar{display:flex;justify-content:center;gap:40px;margin:30px auto 0;flex-wrap:wrap}
 .counter-item{text-align:center}
-.counter-num{font-size:28px;font-weight:800;color:var(--green)}
-.counter-label{font-size:12px;color:var(--text-sec);text-transform:uppercase;letter-spacing:1px}
+.counter-num{font-size:28px;font-weight:800;background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.counter-label{font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px}
 
 .section{padding:80px 0}
-.section-alt{background:#050505}
+.section-alt{background:var(--bg-secondary)}
 .section-header{text-align:center;margin-bottom:48px}
 .section-header h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;margin-bottom:12px}
-.section-header p{max-width:55ch;margin:0 auto;color:var(--text-sec)}
+.section-header p{max-width:55ch;margin:0 auto;color:var(--text-secondary)}
 
 .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.card{background:#111;border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:transform .3s,border-color .3s;position:relative}
-.card:hover{transform:translateY(-4px);border-color:rgba(34,197,94,.3)}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:transform .3s,border-color .3s,box-shadow .3s;position:relative}
+.card:hover{transform:translateY(-4px);border-color:var(--accent-violet);box-shadow:var(--shadow-glow)}
 .card-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px}
-.card-icon.green{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2)}
-.card-icon.gold{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2)}
+.card-icon.violet{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2)}
+.card-icon.cyan{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2)}
 .card h3{font-size:18px;margin-bottom:8px}
-.card p{color:var(--text-sec);font-size:14px;line-height:1.6}
+.card p{color:var(--text-secondary);font-size:14px;line-height:1.6}
 
 .steps{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px}
-.steps-image img{width:100%;border-radius:var(--radius);border:1px solid var(--border)}
+.steps-image img{width:100%;border-radius:var(--radius-lg);border:1px solid var(--border)}
 .step{position:relative;padding-left:48px;margin-bottom:28px}
 .step:last-child{margin-bottom:0}
-.step-num{position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.step-num{position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.3);color:var(--accent-violet-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
 .step h4{font-size:17px;margin-bottom:4px}
-.step p{color:var(--text-sec);font-size:14px}
+.step p{color:var(--text-secondary);font-size:14px}
 
 .marquee-wrap{position:relative;overflow:hidden}
 .marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;width:120px;height:100%;z-index:2;pointer-events:none}
-.marquee-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
-.marquee-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.marquee-wrap::before{left:0;background:linear-gradient(to right,var(--bg-primary),transparent)}
+.marquee-wrap::after{right:0;background:linear-gradient(to left,var(--bg-primary),transparent)}
 .marquee{display:flex;gap:16px;width:max-content;animation:scroll 40s linear infinite}
 @keyframes scroll{to{transform:translateX(-50%)}}
-.t-card{background:#111;border:1px solid var(--border);border-radius:var(--radius);padding:20px;width:340px;flex-shrink:0}
+.t-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;width:340px;flex-shrink:0;transition:border-color .2s}
+.t-card:hover{border-color:var(--accent-violet)}
 .t-card img{width:44px;height:44px;border-radius:50%;margin-right:12px;border:2px solid var(--border)}
 .t-card .author{display:flex;align-items:center;margin-bottom:12px}
 .t-card .author div{font-size:14px;font-weight:600}
-.t-card .author span{font-size:12px;color:var(--text-sec);display:block}
-.t-card blockquote{font-size:14px;line-height:1.6;color:var(--text-sec);border-left:2px solid var(--green);padding-left:14px;font-style:italic}
+.t-card .author span{font-size:12px;color:var(--text-secondary);display:block}
+.t-card blockquote{font-size:14px;line-height:1.6;color:var(--text-secondary);border-left:2px solid var(--accent-violet);padding-left:14px;font-style:italic}
 
 .faq{margin-top:32px}
-.faq summary{padding:16px 20px;background:#111;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;font-weight:600;font-size:15px;transition:border-color .2s;list-style:none;display:flex;justify-content:space-between;align-items:center}
-.faq summary::after{content:'+';font-size:20px;color:var(--green);transition:transform .2s}
-.faq details[open] summary{border-color:var(--green);border-radius:var(--radius) var(--radius) 0 0}
+.faq summary{padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);cursor:pointer;font-weight:600;font-size:15px;transition:border-color .2s;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::after{content:'+';font-size:20px;color:var(--accent-violet);transition:transform .2s}
+.faq details[open] summary{border-color:var(--accent-violet);border-radius:var(--radius-lg) var(--radius-lg) 0 0}
 .faq details[open] summary::after{content:'−'}
-.faq .content{padding:16px 20px;border:1px solid var(--border);border-top:0;border-radius:0 0 var(--radius) var(--radius);color:var(--text-sec);font-size:14px;line-height:1.6}
+.faq .content{padding:16px 20px;border:1px solid var(--border);border-top:0;border-radius:0 0 var(--radius-lg) var(--radius-lg);color:var(--text-secondary);font-size:14px;line-height:1.6}
 .faq details+details{margin-top:8px}
 
 .cta-section{text-align:center;padding:100px 0}
 .cta-section h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;margin-bottom:16px;max-width:16ch;margin-left:auto;margin-right:auto}
-.cta-section p{color:var(--text-sec);margin-bottom:28px}
+.cta-section p{color:var(--text-secondary);margin-bottom:28px}
 
 .lead-form{max-width:440px;margin:20px auto 0;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.lead-form input{flex:1;min-width:200px;padding:14px 18px;border-radius:999px;border:1px solid var(--border);background:#111;color:#fff;font-size:14px;outline:none;transition:border-color .2s}
-.lead-form input:focus{border-color:var(--green)}
+.lead-form input{flex:1;min-width:200px;padding:14px 18px;border-radius:var(--radius-full);border:1px solid var(--border);background:var(--bg-card);color:var(--text-primary);font-size:14px;outline:none;transition:border-color .2s;font-family:inherit}
+.lead-form input:focus{border-color:var(--accent-violet);box-shadow:0 0 0 3px rgba(139,92,246,.1)}
 .lead-form .btn{padding:14px 24px;font-size:14px}
 #form-msg{text-align:center;font-size:13px;margin-top:8px;display:none}
 
-footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;color:var(--text-sec);font-size:13px}
-footer a{color:var(--green)}
-footer .logo{font-size:18px;margin-bottom:8px;display:block;color:var(--text-sec)}
+.brand-bar{display:flex;justify-content:center;align-items:center;gap:24px;padding:16px 0;border-top:1px solid var(--border);margin-top:40px;flex-wrap:wrap}
+.brand-bar a{color:var(--text-muted);font-size:13px;transition:color .2s}
+.brand-bar a:hover{color:var(--accent-violet)}
+
+footer{padding:40px 0;border-top:1px solid var(--border);text-align:center}
+footer .logo{font-size:18px;margin-bottom:8px;display:block}
 footer .legal{display:flex;justify-content:center;gap:16px;margin:12px 0;flex-wrap:wrap}
-footer .legal a{color:var(--text-sec);font-size:12px}
+footer .legal a{color:var(--text-muted);font-size:12px;transition:color .2s}
+footer .legal a:hover{color:var(--accent-violet-light)}
+footer p{color:var(--text-muted);font-size:13px;line-height:1.6}
+
+.disclaimer{max-width:600px;margin:12px auto 0;font-size:11px;color:var(--text-muted);opacity:.6}
 
 [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
 [data-reveal].show{opacity:1;transform:translateY(0)}
@@ -134,10 +171,10 @@ footer .legal a{color:var(--text-sec);font-size:12px}
   .marquee-wrap::before,.marquee-wrap::after{width:40px}
   .lead-form{flex-direction:column}
   .lead-form input{min-width:auto}
+  .section{padding:48px 0}
 }
 @media(max-width:480px){
   .hero{padding:100px 0 40px}
-  .section{padding:48px 0}
 }
 </style>
 </head>
@@ -147,7 +184,7 @@ footer .legal a{color:var(--text-sec);font-size:12px}
 
 <nav>
   <div class="container">
-    <div class="logo">Binary<span>Boost</span></div>
+    <div class="logo"><span class="logo-accent">Binary</span>Boost</div>
     <a href="https://affiliate.iqoption.net/redir/?aff=155995&aff_model=revenue&afftrack=" class="nav-cta" rel="noopener noreferrer" target="_blank">Crear Cuenta</a>
   </div>
 </nav>
@@ -157,9 +194,9 @@ footer .legal a{color:var(--text-sec);font-size:12px}
     <canvas id="mesh"></canvas>
     <div class="container">
       <div class="tagline" data-reveal>Exclusivo para nuevos traders</div>
-      <h1 data-reveal style="transition-delay:.1s">El Futuro del Trading, <span>Simplificado Para Ti</span></h1>
+      <h1 data-reveal style="transition-delay:.1s">El Futuro del Trading, <span class="gradient-text">Simplificado Para Ti</span></h1>
       <p data-reveal style="transition-delay:.2s">Deja de adivinar. Te mostramos el camino para iniciarte en Opciones Binarias con la plataforma líder.</p>
-      <a href="https://affiliate.iqoption.net/redir/?aff=155995&aff_model=revenue&afftrack=" class="btn btn-green" data-reveal style="transition-delay:.3s" rel="noopener noreferrer" target="_blank">Empezar Ahora Mismo</a>
+      <a href="https://affiliate.iqoption.net/redir/?aff=155995&aff_model=revenue&afftrack=" class="btn btn-primary" data-reveal style="transition-delay:.3s" rel="noopener noreferrer" target="_blank">Empezar Ahora Mismo</a>
       <p class="hero-sub" data-reveal style="transition-delay:.4s">Apertura de cuenta 100% gratis</p>
       <div class="counter-bar" data-reveal style="transition-delay:.5s">
         <div class="counter-item"><div class="counter-num"><span id="users-count">0</span>+</div><div class="counter-label">Usuarios Activos</div></div>
@@ -177,17 +214,17 @@ footer .legal a{color:var(--text-sec);font-size:12px}
       </div>
       <div class="grid-3">
         <div class="card" data-reveal style="transition-delay:.1s">
-          <div class="card-icon green">📖</div>
+          <div class="card-icon violet">📖</div>
           <h3>Explicaciones Claras</h3>
           <p>Te guiamos paso a paso. Aprende los conceptos básicos en minutos, no en semanas.</p>
         </div>
         <div class="card" data-reveal style="transition-delay:.2s">
-          <div class="card-icon gold">📱</div>
+          <div class="card-icon cyan">📱</div>
           <h3>Plataforma Intuitiva</h3>
           <p>IQ Option es reconocida por su facilidad de uso. Ideal para principiantes.</p>
         </div>
         <div class="card" data-reveal style="transition-delay:.3s">
-          <div class="card-icon green">💰</div>
+          <div class="card-icon violet">💰</div>
           <h3>Inicia con Poco</h3>
           <p>Sin mínimo alto. Cuenta demo con $10,000 virtuales para practicar sin riesgo.</p>
         </div>
@@ -272,34 +309,38 @@ footer .legal a{color:var(--text-sec);font-size:12px}
       <h2>¿Listo para dar el primer paso?</h2>
       <p>Tu oportunidad empieza ahora. Sin compromiso, sin riesgo.</p>
       <div style="margin-bottom:24px">
-        <a href="https://affiliate.iqoption.net/redir/?aff=155995&aff_model=revenue&afftrack=" class="btn btn-green" rel="noopener noreferrer" target="_blank">Abrir Cuenta Gratis</a>
+        <a href="https://affiliate.iqoption.net/redir/?aff=155995&aff_model=revenue&afftrack=" class="btn btn-primary" rel="noopener noreferrer" target="_blank">Abrir Cuenta Gratis</a>
       </div>
-      <p style="font-size:13px;color:var(--text-sec);margin-bottom:24px">O déjanos tu email y te enviamos la guía completa:</p>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:24px">O déjanos tu email y te enviamos la guía completa:</p>
       <form class="lead-form" id="lead-form" action="https://formspree.io/f/your_form_id" method="POST">
         <input type="email" name="email" placeholder="tu@email.com" required>
-        <button type="submit" class="btn btn-gold">Recibir Guía</button>
+        <button type="submit" class="btn btn-primary">Recibir Guía</button>
       </form>
       <div id="form-msg"></div>
     </div>
   </section>
 </main>
 
+<div class="brand-bar">
+  <a href="https://oscarlugocar-lang.github.io/dreamscape-landing1/">← Volver a Dreamscape</a>
+</div>
+
 <footer>
   <div class="container">
-    <div class="logo">Binary<span>Boost</span></div>
+    <div class="logo"><span class="logo-accent">Binary</span>Boost</div>
     <div class="legal">
       <a href="privacy.html">Privacidad</a>
       <a href="terms.html">Términos</a>
       <a href="https://oscarlugocar-lang.github.io/dreamscape-landing1/">Dreamscape</a>
     </div>
-    <p>© 2026 BinaryBoost. Todos los derechos reservados.</p>
-    <p>Este sitio es un afiliado promocional. Invierte de forma responsable. El trading con opciones binarias conlleva riesgo de pérdida de capital.</p>
+    <p>&copy; 2026 BinaryBoost. Todos los derechos reservados.</p>
+    <p class="disclaimer">Este sitio es un afiliado promocional. Invierte de forma responsable. El trading con opciones binarias conlleva riesgo de pérdida de capital.</p>
   </div>
 </footer>
 
-<div id="gdpr-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#111;border-top:1px solid var(--border);padding:16px 24px;display:none;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
-  <span style="color:#ccc;font-size:13px">🍪 Usamos cookies esenciales y analytics para mejorar tu experiencia.</span>
-  <button id="gdpr-accept" style="padding:8px 20px;background:var(--green);color:#fff;border:none;border-radius:999px;font-weight:600;cursor:pointer">Aceptar</button>
+<div id="gdpr-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--bg-card);border-top:1px solid var(--border);padding:16px 24px;display:none;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+  <span style="color:var(--text-secondary);font-size:13px">Usamos cookies esenciales y analytics para mejorar tu experiencia.</span>
+  <button id="gdpr-accept" style="padding:8px 20px;background:var(--gradient-accent);color:#fff;border:none;border-radius:var(--radius-full);font-weight:600;cursor:pointer">Aceptar</button>
 </div>
 
 <script defer data-domain="oscarlugocar-lang.github.io/dreamscape-landing1" src="https://plausible.io/js/script.js"></script>
@@ -309,9 +350,9 @@ const c=document.getElementById('mesh'),ctx=c.getContext('2d');
 let W,H;
 function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;c.style.width=W+'px';c.style.height=H+'px'}
 window.addEventListener('resize',resize);resize();
-class Blob{constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*200+150;this.colors=[{r:34,g:197,b:94},{r:212,g:175,b:55},{r:10,g:10,b:10},{r:50,g:50,b:50}];this.c=this.colors[Math.floor(Math.random()*this.colors.length)]}
+class Blob{constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*200+150;this.colors=[{r:139,g:92,b:246},{r:6,g:182,b:212},{r:167,g:139,b:250},{r:34,g:197,b:94}];this.c=this.colors[Math.floor(Math.random()*this.colors.length)]}
 update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1}
-draw(){let g=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r);g.addColorStop(0,`rgba(${this.c.r},${this.c.g},${this.c.b},1)`);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill()}}
+draw(){let g=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r);g.addColorStop(0,`rgba(${this.c.r},${this.c.g},${this.c.b},.6)`);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill()}}
 let blobs=[...Array(4)].map(()=>new Blob);
 function anim(){ctx.clearRect(0,0,W,H);blobs.forEach(b=>{b.update();b.draw()});requestAnimationFrame(anim)}
 anim();
@@ -320,7 +361,7 @@ anim();
 function animateCount(el,target){let current=0,step=Math.ceil(target/80);let i=setInterval(()=>{current+=step;if(current>=target){current=target;clearInterval(i)}el.textContent=current.toLocaleString()},25)}
 setTimeout(()=>{animateCount(document.getElementById('users-count'),2847);animateCount(document.getElementById('demo-count'),12530)},600);
 
-// Testimonials (JS-generated, no duplication)
+// Testimonials
 const testimonials=[
 {name:'Javier M.',role:'Estudiante',img:'https://i.pravatar.cc/150?u=1',text:'Tenía cero experiencia. Esta guía me lo explicó tan sencillo que en un fin de semana ya operaba en demo.'},
 {name:'Sofía R.',role:'Diseñadora',img:'https://i.pravatar.cc/150?u=2',text:'IQ Option es súper intuitiva. Entendí todo sin tutoriales complicados. 100% recomendada.'},
@@ -345,9 +386,9 @@ document.getElementById('lead-form').addEventListener('submit',async function(e)
   btn.disabled=true;btn.textContent='Enviando...';msg.style.display='none';
   try{
     const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
-    if(r.ok){msg.style.display='block';msg.style.color='var(--green)';msg.textContent='✓ Revisa tu email. Te enviamos la guía.';this.reset()}
+    if(r.ok){msg.style.display='block';msg.style.color='var(--accent-green)';msg.textContent='Revisa tu email. Te enviamos la guía.';this.reset()}
     else throw Error();
-  }catch(e){msg.style.display='block';msg.style.color='var(--gold)';msg.textContent='✗ Error. Intenta de nuevo.'}
+  }catch(e){msg.style.display='block';msg.style.color='var(--accent-orange)';msg.textContent='Error. Intenta de nuevo.'}
   finally{btn.disabled=false;btn.textContent='Recibir Guía'}
 });
 

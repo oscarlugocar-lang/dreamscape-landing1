@@ -52,6 +52,11 @@ input:focus{border-color:var(--blue)}
 <button type="submit" class="btn">Descargar Guía Gratis</button>
 </form>
 <div id="form-msg"></div>
+<div id="download-area" style="display:none;margin-top:20px">
+  <p style="color:var(--green);font-size:14px;margin-bottom:12px">✅ ¡Gracias! Descargá tu capítulo gratuito:</p>
+  <a href="../guia-pdf/Guia-Completa-Opciones-Binarias.pdf" class="btn" download style="font-size:12px;padding:10px 20px">📥 Descargar Capítulo de la Guía</a>
+  <p style="font-size:12px;color:var(--text2);margin-top:12px">💡 ¿Querés la guía COMPLETA con estrategias avanzadas?<br><a href="../producto/" style="color:var(--blue)">Comprar guía completa $9 USD →</a></p>
+</div>
 <p class="secure">🔒 No compartimos tu email. Podés darte de baja cuando quieras.</p>
 </div>
 <script>
@@ -62,6 +67,7 @@ document.getElementById('lead-form').addEventListener('submit',async function(e)
     const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
     if(r.ok){
       msg.style.display='block';msg.style.color='var(--green)';msg.textContent='✓ Revisá tu email. Te enviamos la guía.';this.reset();
+      document.getElementById('download-area').style.display='block';
       if(typeof fbq==='function')fbq('track','Lead');
       if(typeof gtag==='function')gtag('event','conversion');
     } else throw Error();

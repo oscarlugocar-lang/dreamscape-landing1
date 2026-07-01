@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BinaryBoost — Facebook Ad 1080x1080</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1080px;overflow:hidden;font-family:'Inter',sans-serif;background:#050508;color:#fff;position:relative}
+canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.3;pointer-events:none}
+.content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:80px;text-align:center;z-index:1}
+.tag{font-family:'JetBrains Mono',monospace;font-size:14px;color:#00ffff;text-transform:uppercase;letter-spacing:3px;border:1px solid rgba(0,255,255,.15);padding:8px 16px;border-radius:4px;margin-bottom:32px;background:rgba(0,255,255,.05)}
+h1{font-size:72px;font-weight:900;line-height:1.05;letter-spacing:-.04em;margin-bottom:16px}
+h1 .g{background:linear-gradient(135deg,#00ffff,#bf00ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+p{font-size:22px;color:#8888aa;max-width:700px;line-height:1.5;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:18px 48px;border-radius:6px;background:linear-gradient(135deg,#00ffff,#bf00ff);color:#000;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:1px;text-decoration:none;transition:transform .2s}
+.stats{display:flex;gap:48px;margin-top:40px}
+.stat{font-family:'JetBrains Mono',monospace;text-align:center}
+.stat-num{font-size:28px;font-weight:700;background:linear-gradient(135deg,#00ffff,#bf00ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-lbl{font-size:12px;color:#555577;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+</style>
+</head>
+<body>
+<canvas id="net"></canvas>
+<div class="content">
+<div class="tag">⚡ Cuenta demo gratuita</div>
+<h1>El trading <span class="g">no tiene que ser complicado</span></h1>
+<p>Empezá en opciones binarias desde cero. Sin experiencia, sin jerga, sin riesgo. Guía paso a paso + cuenta demo con $10,000 virtuales.</p>
+<div class="btn">Comenzar ahora →</div>
+<div class="stats">
+<div class="stat"><div class="stat-num">2,847+</div><div class="stat-lbl">Usuarios activos</div></div>
+<div class="stat"><div class="stat-num">4.8★</div><div class="stat-lbl">Valoración</div></div>
+</div>
+</div>
+<script>
+const c=document.getElementById('net'),ctx=c.getContext('2d');
+c.width=1080;c.height=1080;
+class P{constructor(){this.x=Math.random()*1080;this.y=Math.random()*1080;this.vx=(Math.random()-.5)*.6;this.vy=(Math.random()-.5)*.6;this.r=Math.random()*1.5+1}
+u(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>1080)this.vx*=-1;if(this.y<0||this.y>1080)this.vy*=-1}
+d(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle='rgba(0,255,255,.5)';ctx.fill()}}
+let pts=[...Array(60)].map(()=>new P);
+function a(){ctx.clearRect(0,0,1080,1080);pts.forEach(p=>{p.u();p.d()});for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){let dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<150){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(0,255,255,${.1*(1-d/150)})`;ctx.stroke()}}}requestAnimationFrame(a)}
+a();
+</script>
+</body>
+</html>

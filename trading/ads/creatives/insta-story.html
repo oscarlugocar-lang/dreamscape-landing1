@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BinaryBoost — Instagram Story 1080x1920</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;overflow:hidden;font-family:'Inter',sans-serif;background:#050508;color:#fff;position:relative}
+canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.2}
+.content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:80px;text-align:center;z-index:1}
+.logo{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;margin-bottom:80px;display:flex;align-items:center;gap:12px}
+.logo-dot{width:10px;height:10px;background:#39ff14;border-radius:50%;box-shadow:0 0 15px #39ff14;animation:p 1.5s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.logo span{background:linear-gradient(135deg,#00ffff,#bf00ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.emoji{font-size:120px;margin-bottom:40px}
+h1{font-size:80px;font-weight:900;line-height:1.1;letter-spacing:-.04em;margin-bottom:24px}
+h1 .g{background:linear-gradient(135deg,#00ffff,#bf00ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+p{font-size:28px;color:#8888aa;max-width:800px;line-height:1.5;margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:24px 60px;border-radius:6px;background:linear-gradient(135deg,#00ffff,#bf00ff);color:#000;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:1px;text-decoration:none}
+.tag-bottom{position:absolute;bottom:60px;font-family:'JetBrains Mono',monospace;font-size:14px;color:#555577;text-align:center;letter-spacing:1px}
+</style>
+</head>
+<body>
+<canvas id="net"></canvas>
+<div class="content">
+<div class="logo"><span class="logo-dot"></span><span>Binary</span>Boost</div>
+<div class="emoji">📈</div>
+<h1>Empezá en <span class="g">3 pasos</span></h1>
+<p>Registrate gratis → Practicá en demo → Operá en vivo.<br>Sin experiencia necesaria.</p>
+<div class="btn">Crear cuenta gratis</div>
+<div class="tag-bottom">📱 IQ Option • Cuenta demo $10,000</div>
+</div>
+<script>
+const c=document.getElementById('net'),ctx=c.getContext('2d');
+c.width=1080;c.height=1920;
+class P{constructor(){this.x=Math.random()*1080;this.y=Math.random()*1920;this.vx=(Math.random()-.5)*.6;this.vy=(Math.random()-.5)*.6;this.r=Math.random()*1.5+1}
+u(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>1080)this.vx*=-1;if(this.y<0||this.y>1920)this.vy*=-1}
+d(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle='rgba(191,0,255,.4)';ctx.fill()}}
+let pts=[...Array(50)].map(()=>new P);
+function a(){ctx.clearRect(0,0,1080,1920);pts.forEach(p=>{p.u();p.d()});for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){let dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<180){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(191,0,255,${.08*(1-d/180)})`;ctx.stroke()}}}requestAnimationFrame(a)}
+a();
+</script>
+</body>
+</html>

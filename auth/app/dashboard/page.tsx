@@ -30,7 +30,7 @@ export default async function Dashboard() {
           <div style={{ background: 'rgba(57,255,20,.03)', border: '1px solid rgba(57,255,20,.15)', borderRadius: 16, padding: 24 }}>
             <h3 style={{ color: '#39FF14', fontSize: 16 }}>BinaryBoost Trading</h3>
             <p style={{ color: '#888', fontSize: 13, marginTop: 8 }}>Accede a nuestra guía de trading y plataforma IQ Option.</p>
-            <a href="/dreamscape-landing1/trading/" target="_blank" style={{ display: 'inline-block', marginTop: 12, padding: '8px 20px', background: '#22C55E', color: '#000', borderRadius: 50, fontWeight: 700, fontSize: 13, textDecoration: 'none' }}>Ir a BinaryBoost →</a>
+            <a href="https://oscarlugocar-lang.github.io/dreamscape-landing1/trading/" target="_blank" style={{ display: 'inline-block', marginTop: 12, padding: '8px 20px', background: '#22C55E', color: '#000', borderRadius: 50, fontWeight: 700, fontSize: 13, textDecoration: 'none' }}>Ir a BinaryBoost →</a>
           </div>
           <div style={{ background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 16, padding: 24 }}>
             <h3 style={{ color: '#A1A1AA', fontSize: 16 }}>Ayuda</h3>

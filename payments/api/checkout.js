@@ -1,12 +1,19 @@
 const express = require('express');
 const Stripe = require('stripe');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const app = express();
 app.use(cors({ origin: process.env.DOMAIN }));
 app.use(express.static('public'));
-app.use(express.json());
+app.use(express.json({ limit: '10kb' }));
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  message: { error: 'Too many requests, try again later' },
+});
 
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -15,7 +22,15 @@ const PRICES = {
   pro: process.env.PRICE_PROFESIONAL,
 };
 
-app.post('/api/create-checkout', async (req, res) => {
+function requireApiKey(req, res, next) {
+  const key = req.headers['x-api-key'];
+  if (!key || key !== process.env.API_KEY) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  next();
+}
+
+app.post('/api/create-checkout', limiter, requireApiKey, async (req, res) => {
   try {
     const { priceId, customerEmail } = req.body;
     if (!priceId) {
@@ -34,11 +49,11 @@ app.post('/api/create-checkout', async (req, res) => {
     res.json({ url: session.url });
   } catch (err) {
     console.error('checkout error:', err);
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: 'Error creating checkout session' });
   }
 });
 
-app.post('/api/create-portal', async (req, res) => {
+app.post('/api/create-portal', requireApiKey, async (req, res) => {
   try {
     const { sessionId } = req.body;
     const session = await stripe.checkout.sessions.retrieve(sessionId);
@@ -49,7 +64,7 @@ app.post('/api/create-portal', async (req, res) => {
     res.json({ url: portal.url });
   } catch (err) {
     console.error('portal error:', err);
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: 'Error creating portal session' });
   }
 });
 

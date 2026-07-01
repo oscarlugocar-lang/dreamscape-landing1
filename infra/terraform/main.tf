@@ -16,11 +16,9 @@ data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
 locals {
-  project = "dreamscape"
+  project = var.project_name
   env     = terraform.workspace
-  tags = {
-    Project     = "Dreamscape"
+  tags    = merge(var.tags, {
     Environment = local.env
-    ManagedBy   = "Terraform"
-  }
+  })
 }

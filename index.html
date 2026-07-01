@@ -4,16 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dreamscape - IA para Edición de Video Profesional</title>
+<meta name="description" content="Dreamscape combina inteligencia artificial con edición profesional de video. Automatización, velocidad y creatividad para llevar tu contenido al siguiente nivel.">
 <meta name="dreamscape-version" content="1.0">
 <meta name="dreamscape-env" content="production">
+<meta property="og:title" content="Dreamscape - IA para Edición de Video Profesional">
+<meta property="og:description" content="Donde la creatividad humana se encuentra con el poder de la inteligencia artificial. Automatización, velocidad y creatividad para tu edición de video.">
+<meta property="og:image" content="https://oscarlugocar-lang.github.io/dreamscape-landing1/logo-nav.svg">
+<meta property="og:url" content="https://oscarlugocar-lang.github.io/dreamscape-landing1/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dreamscape - IA para Edición de Video Profesional">
+<meta name="twitter:description" content="Donde la creatividad humana se encuentra con el poder de la inteligencia artificial.">
+<link rel="canonical" href="https://oscarlugocar-lang.github.io/dreamscape-landing1/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>✦</text></svg>">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Dreamscape","description":"IA para Edición de Video Profesional","url":"https://oscarlugocar-lang.github.io/dreamscape-landing1/","email":"latamdreamscape@gmail.com","contactPoint":{"@type":"ContactPoint","telephone":"+57-301-182-2651","contactType":"sales"},"sameAs":["https://instagram.com/dreamscape.ai","https://linkedin.com/company/dreamscape"]}</script>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Open+Sans:wght@300;400;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   :root{
     --electric-blue:#00FFFF;--neon-purple:#BF00FF;--fluo-green:#39FF14;
     --bg-primary:#000000;--bg-secondary:#0a0a0f;--bg-card:rgba(255,255,255,0.03);
-    --text-primary:#ffffff;--text-secondary:#ccc;--text-muted:#888;
+    --text-primary:#ffffff;--text-secondary:#ccc;    --text-muted:#bbb;
     --gradient-primary:linear-gradient(135deg,#00FFFF,#BF00FF);
     --gradient-accent:linear-gradient(90deg,#00FFFF,#BF00FF,#39FF14);
     --border-subtle:rgba(0,255,255,0.15);--glow-blue:0 0 30px rgba(0,255,255,0.3)
@@ -35,7 +48,8 @@
   .service-card:hover,.about-card:hover{border-color:var(--electric-blue);transform:translateY(-5px);box-shadow:0 10px 40px rgba(0,255,255,.1)}
   .about-card{border-radius:16px;padding:30px 20px}
   .portfolio-item{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:1;border:1px solid var(--border-subtle);transition:all .4s;background:var(--bg-card)}
-  .portfolio-item:hover{border-color:var(--electric-blue);box-shadow:0 5px 25px rgba(0,255,255,.1)}
+  .portfolio-item:hover,.portfolio-item:focus-visible{border-color:var(--electric-blue);box-shadow:0 5px 25px rgba(0,255,255,.1)}
+  .portfolio-item:focus-visible{outline:2px solid var(--electric-blue);outline-offset:2px}
   .portfolio-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
   .portfolio-item:hover img{transform:scale(1.08)}
   .portfolio-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,255,255,.1);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
@@ -64,15 +78,24 @@
   input,textarea{padding:12px 16px;background:rgba(255,255,255,.05);border:1px solid var(--border-subtle);border-radius:8px;color:#fff;font-size:14px;outline:none;transition:border-color .3s;font-family:'Open Sans',sans-serif;width:100%}
   input:focus,textarea:focus{border-color:var(--electric-blue);box-shadow:0 0 15px rgba(0,255,255,.1)}
   .form-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:30px;max-width:600px;margin:30px auto 0}
+  .hamburger{display:none;background:none;border:none;color:var(--electric-blue);font-size:28px;cursor:pointer;z-index:1001;padding:4px 8px}
+  .nav-links{display:flex;gap:25px;align-items:center}
+  .nav-links a{color:var(--text-muted);font-size:14px;transition:color .3s}
+  .nav-links a:hover{color:var(--electric-blue)}
+  .nav-cta{padding:8px 20px;background:var(--gradient-primary);color:#000!important;border-radius:50px;font-weight:700;font-size:13px}
   @media(max-width:1024px){
     .services-grid,.portfolio-grid{grid-template-columns:repeat(2,1fr)}
   }
   @media(max-width:768px){
     .services-grid,.portfolio-grid{grid-template-columns:1fr}
     .about-grid{grid-template-columns:1fr 1fr}
-    .nav-links{display:none}
     .section-title{font-size:32px}
     .hero h1{font-size:48px}
+    .hamburger{display:block}
+    .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.95);flex-direction:column;justify-content:center;gap:30px;z-index:1000}
+    .nav-links.open{display:flex}
+    .nav-links a{font-size:22px}
+    .nav-cta{font-size:18px!important;padding:12px 30px!important}
   }
   @media(max-width:480px){
     .about-grid{grid-template-columns:1fr}
@@ -82,22 +105,26 @@
 </style>
 </head>
 <body>
+<a href="#main-content" style="position:absolute;top:-100px;left:0;z-index:10000;padding:10px 20px;background:var(--electric-blue);color:#000;font-weight:700;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Ir al contenido</a>
+<div id="aria-live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden"></div>
 
-<nav style="position:fixed;top:0;width:100%;z-index:1000;padding:15px 0;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-subtle)">
+<nav role="navigation" aria-label="Navegación principal" style="position:fixed;top:0;width:100%;z-index:1000;padding:15px 0;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-subtle)">
   <div class="container" style="display:flex;justify-content:space-between;align-items:center">
     <span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:3px">DREAMSCAPE</span>
-    <div class="nav-links" style="display:flex;gap:25px;align-items:center">
-      <a href="#servicios" style="color:var(--text-muted);font-size:14px;transition:color .3s">Servicios</a>
-      <a href="#portfolio" style="color:var(--text-muted);font-size:14px">Portfolio</a>
-      <a href="#nosotros" style="color:var(--text-muted);font-size:14px">Nosotros</a>
-      <a href="#precios" style="color:var(--text-muted);font-size:14px">Precios</a>
-      <a href="#brief" style="color:var(--text-muted);font-size:14px">Brief</a>
-      <a href="#contacto" style="padding:8px 20px;background:var(--gradient-primary);color:#000;border-radius:50px;font-weight:700;font-size:13px">Contacto</a>
+    <button class="hamburger" aria-label="Menú de navegación" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#precios">Precios</a>
+      <a href="#brief">Brief</a>
+      <a href="#contacto" class="nav-cta">Contacto</a>
     </div>
   </div>
 </nav>
 
-<section class="hero" style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(135deg,#000,#0a0a0f 50%,#1a0a2e 100%);overflow:hidden">
+<section id="main-content" class="hero" style="min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(135deg,#000,#0a0a0f 50%,#1a0a2e 100%);overflow:hidden">
+  <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Dreamscape - IA para Edición de Video Profesional</h1>
   <div style="position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(0,255,255,.05) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(191,0,255,.05) 0%,transparent 50%)"></div>
   <div style="position:relative;z-index:1" class="container">
     <svg viewBox="0 0 500 160" style="width:clamp(280px,50vw,500px);height:auto;margin-bottom:10px" xmlns="http://www.w3.org/2000/svg">
@@ -127,7 +154,6 @@
       <text x="115" y="96" font-family="'Open Sans',Arial,sans-serif" font-weight="300" font-size="10" fill="#666" letter-spacing="2">IA PARA EDICIÓN DE VIDEO PROFESIONAL</text>
       <line x1="115" y1="106" x2="470" y2="106" stroke="url(#hg)" stroke-width="1" opacity="0.3"/>
     </svg>
-    <p style="font-size:clamp(16px,2.5vw,22px);color:rgba(255,255,255,.75);font-weight:300;letter-spacing:1px;margin-bottom:25px">Donde la creatividad humana se encuentra con el poder de la inteligencia artificial</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:30px">
       <span class="pill pill-blue">⚡ Automatización</span>
       <span class="pill pill-purple">🎨 Creatividad</span>
@@ -338,10 +364,14 @@
     </div>
     <div class="form-card">
       <p style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--electric-blue);margin-bottom:20px;font-size:18px">Solicita una cotización</p>
-      <form style="display:flex;flex-direction:column;gap:12px">
-        <input type="text" placeholder="Tu nombre">
-        <input type="email" placeholder="Tu email">
-        <textarea placeholder="Cuéntanos sobre tu proyecto..." rows="3" style="resize:vertical"></textarea>
+      <form style="display:flex;flex-direction:column;gap:12px" action="https://formspree.io/f/your_form_id" method="POST">
+        <label for="contact-name" style="position:absolute;width:1px;height:1px;overflow:hidden">Tu nombre</label>
+        <input id="contact-name" name="name" type="text" placeholder="Tu nombre" required>
+        <label for="contact-email" style="position:absolute;width:1px;height:1px;overflow:hidden">Tu email</label>
+        <input id="contact-email" name="email" type="email" placeholder="Tu email" required>
+        <label for="contact-message" style="position:absolute;width:1px;height:1px;overflow:hidden">Mensaje</label>
+        <textarea id="contact-message" name="message" placeholder="Cuéntanos sobre tu proyecto..." rows="3" style="resize:vertical" required></textarea>
+        <div id="form-feedback" style="color:var(--fluo-green);font-size:13px;display:none"></div>
         <button type="submit" class="btn-primary" style="width:100%;padding:12px 24px;font-size:15px">Enviar Mensaje</button>
       </form>
     </div>
@@ -357,41 +387,51 @@
   <p style="color:var(--text-muted);font-style:italic;font-size:14px">Donde la creatividad humana se encuentra con el poder de la inteligencia artificial</p>
 </footer>
 
-<script src="https://js.stripe.com/v3/"></script>
+<script src="https://js.stripe.com/v3/" async></script>
+<script defer data-domain="oscarlugocar-lang.github.io/dreamscape-landing1" src="https://plausible.io/js/script.js"></script>
 <script>
 const stripe = Stripe('pk_test_PLACEHOLDER');
 const API_URL = 'https://dreamscape-payments.vercel.app';
 function stripeCheckout(plan) {
-  const prices = { basic: '', pro: '' };
+  const prices = { basic: 'price_basic_monthly', pro: 'price_pro_monthly' };
   fetch(`${API_URL}/api/create-checkout`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ priceId: prices[plan] }),
-  }).then(r => r.json()).then(d => { if (d.url) window.location.href = d.url; });
+  }).then(r => r.json()).then(d => { if (d.url) window.location.href = d.url; else alert('Error al crear checkout: '+d.error); }).catch(()=>alert('Error de conexión. Intenta de nuevo.'));
 }
 
 const projects=[
-  {title:"Showreel 2026",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/6e67cc246797387.Y3JvcCw5MjAsNzIwLDAsMA.png",url:"https://www.behance.net/gallery/246797387/Showreel-2026-Video-Editor-para-Marcas-y-Social-Media"},
-  {title:"Reels de Alto Impacto",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/b52bc2201723559.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/201723559/Reels-de-Alto-Impacto-Edicion-para-Instagram-y-TikTok"},
-  {title:"Reel Publicitario",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/d3dc17201723443.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/201723443/Reel-Publicitario-para-Redes-Sociales-Marca-y-Alcance"},
-  {title:"Diseño para Redes Sociales",cat:"Diseño",img:"https://mir-s3-cdn-cf.behance.net/projects/404/ae9088193273925.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273925/Diseno-para-Redes-Sociales-Piezas-Visuales-para-Marca"},
-  {title:"Carrusel Estratégico",cat:"Diseño",img:"https://mir-s3-cdn-cf.behance.net/projects/404/3c6c8e193273879.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273879/Carrusel-para-Redes-Sociales-Diseno-Estratgico"},
-  {title:"Ilustración Digital Branding",cat:"Ilustración",img:"https://mir-s3-cdn-cf.behance.net/projects/404/d1121f193273453.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273453/Ilustracion-Digital-Arte-Visual-para-Branding-y-Marca"},
-  {title:"Ilustración Identidad",cat:"Ilustración",img:"https://mir-s3-cdn-cf.behance.net/projects/404/6cf2d4193273345.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273345/Ilustracion-Digital-Desarrollo-Visual-para-Identidad"},
-  {title:"Diseño de Logotipo",cat:"Branding",img:"https://mir-s3-cdn-cf.behance.net/projects/404/264ea3193273285.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273285/Diseno-de-Logotipo-Identidad-Visual-para-tu-Marca"},
-  {title:"Piezas Gráficas Social Media",cat:"Diseño",img:"https://mir-s3-cdn-cf.behance.net/projects/404/ea86b0193273177.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273177/Piezas-Graficas-para-Social-Media-Diseno-Visual"},
-  {title:"Ilustración Conceptual",cat:"Ilustración",img:"https://mir-s3-cdn-cf.behance.net/projects/404/b4b8da193273051.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193273051/Ilustracion-Conceptual-Estilo-Grafico-y-Arte-Original"},
-  {title:"Reel Promocional",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/f82e42193091129.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193091129/Edicion-de-Reel-Promocional-Visibilidad-de-Marca"},
-  {title:"Reel 2024",cat:"Video",img:"https://mir-s3-cdn-cf.behance.net/projects/404/99b7dc193086305.Y3JvcCwxODQxLDE0NDAsMzYwLDA.png",url:"https://www.behance.net/gallery/193086305/reel-2024"}
+  {title:"Showreel 2026",cat:"Video",img:"https://picsum.photos/seed/showreel/400/400",url:"https://www.behance.net/gallery/246797387/Showreel-2026-Video-Editor-para-Marcas-y-Social-Media"},
+  {title:"Reels de Alto Impacto",cat:"Video",img:"https://picsum.photos/seed/reels/400/400",url:"https://www.behance.net/gallery/201723559/Reels-de-Alto-Impacto-Edicion-para-Instagram-y-TikTok"},
+  {title:"Reel Publicitario",cat:"Video",img:"https://picsum.photos/seed/publicitario/400/400",url:"https://www.behance.net/gallery/201723443/Reel-Publicitario-para-Redes-Sociales-Marca-y-Alcance"},
+  {title:"Diseño para Redes Sociales",cat:"Diseño",img:"https://picsum.photos/seed/diseno-social/400/400",url:"https://www.behance.net/gallery/193273925/Diseno-para-Redes-Sociales-Piezas-Visuales-para-Marca"},
+  {title:"Carrusel Estratégico",cat:"Diseño",img:"https://picsum.photos/seed/carrusel/400/400",url:"https://www.behance.net/gallery/193273879/Carrusel-para-Redes-Sociales-Diseno-Estratgico"},
+  {title:"Ilustración Digital Branding",cat:"Ilustración",img:"https://picsum.photos/seed/ilustracion-brand/400/400",url:"https://www.behance.net/gallery/193273453/Ilustracion-Digital-Arte-Visual-para-Branding-y-Marca"},
+  {title:"Ilustración Identidad",cat:"Ilustración",img:"https://picsum.photos/seed/identidad/400/400",url:"https://www.behance.net/gallery/193273345/Ilustracion-Digital-Desarrollo-Visual-para-Identidad"},
+  {title:"Diseño de Logotipo",cat:"Branding",img:"https://picsum.photos/seed/logotipo/400/400",url:"https://www.behance.net/gallery/193273285/Diseno-de-Logotipo-Identidad-Visual-para-tu-Marca"},
+  {title:"Piezas Gráficas Social Media",cat:"Diseño",img:"https://picsum.photos/seed/piezas/400/400",url:"https://www.behance.net/gallery/193273177/Piezas-Graficas-para-Social-Media-Diseno-Visual"},
+  {title:"Ilustración Conceptual",cat:"Ilustración",img:"https://picsum.photos/seed/conceptual/400/400",url:"https://www.behance.net/gallery/193273051/Ilustracion-Conceptual-Estilo-Grafico-y-Arte-Original"},
+  {title:"Reel Promocional",cat:"Video",img:"https://picsum.photos/seed/promocional/400/400",url:"https://www.behance.net/gallery/193091129/Edicion-de-Reel-Promocional-Visibilidad-de-Marca"},
+  {title:"Reel 2024",cat:"Video",img:"https://picsum.photos/seed/reel2024/400/400",url:"https://www.behance.net/gallery/193086305/reel-2024"}
 ];
 const grid=document.getElementById('portfolioGrid');
 projects.forEach(p=>{
   const el=document.createElement('div');
   el.className='portfolio-item';
+  el.setAttribute('tabindex','0');
+  el.setAttribute('role','button');
+  el.setAttribute('aria-label','Ver proyecto: '+p.title);
   el.innerHTML='<img src="'+p.img+'" alt="'+p.title+'" loading="lazy"><div class="portfolio-info"><h4>'+p.title+'</h4><span>'+p.cat+'</span></div><div class="portfolio-overlay"><span style="color:#000;font-weight:700;font-size:14px;background:var(--gradient-primary);padding:8px 16px;border-radius:8px">Ver proyecto</span></div>';
-  el.addEventListener('click',()=>window.open(p.url,'_blank'));
+  const openProject=()=>window.open(p.url,'_blank');
+  el.addEventListener('click',openProject);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openProject();});
   grid.appendChild(el);
 });
-document.querySelector('form').addEventListener('submit',function(e){e.preventDefault();alert('¡Gracias por tu interés! Te contactaremos pronto.');this.reset();});
+document.querySelector('form').addEventListener('submit',async function(e){e.preventDefault();const fb=document.getElementById('form-feedback');const btn=this.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Enviando...';try{const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});if(r.ok){fb.style.display='block';fb.textContent='✓ Mensaje enviado. Te contactaremos pronto.';fb.style.color='var(--fluo-green)';this.reset();}else{throw new Error('Error');}}catch(err){fb.style.display='block';fb.textContent='✗ Error al enviar. Intenta de nuevo.';fb.style.color='var(--neon-purple)';}finally{btn.disabled=false;btn.textContent='Enviar Mensaje';}});
+const hamburger=document.querySelector('.hamburger');const navLinks=document.querySelector('.nav-links');
+hamburger.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');hamburger.textContent=open?'✕':'☰';hamburger.setAttribute('aria-expanded',open);});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');hamburger.textContent='☰';hamburger.setAttribute('aria-expanded','false');}));
+if(!localStorage.getItem('gdpr-consent')){const b=document.createElement('div');b.id='gdpr-banner';b.style.cssText='position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#111;border-top:1px solid var(--border-subtle);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap';b.innerHTML='<span style="color:#ccc;font-size:13px">🍪 Usamos cookies esenciales y analytics (Plausible, sin datos personales) para mejorar tu experiencia. Al continuar, aceptas su uso.</span><button id="gdpr-accept" style="padding:8px 24px;background:var(--gradient-primary);color:#000;border:none;border-radius:50px;font-weight:700;cursor:pointer">Aceptar</button>';document.body.appendChild(b);document.getElementById('gdpr-accept').onclick=function(){localStorage.setItem('gdpr-consent','true');b.remove();};}
 </script>
 </body>
 </html>

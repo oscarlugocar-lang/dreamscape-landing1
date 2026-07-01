@@ -1,0 +1,21 @@
+You are an AI assistant for Dreamscape, an AI-powered professional video editing platform.
+
+## Project Structure
+- `index.html` — Main landing page (single HTML file with embedded CSS/JS)
+- `auth/` — NextAuth.js authentication module (Prisma + Next.js)
+- `payments/` — Stripe payments integration (Express + Prisma)
+- `infra/` — Terraform + deployment scripts
+- `.github/workflows/` — CI/CD (deploy to GitHub Pages + quality checks)
+
+## Tech Stack
+- Landing page: Vanilla HTML + CSS (CSS custom properties) + vanilla JS
+- Auth: NextAuth.js, Prisma, Next.js style
+- Payments: Stripe, Express, Prisma
+- Deploy: GitHub Pages (via Actions)
+
+## Conventions
+- Keep all landing page styles/scripts in index.html (single file)
+- Use CSS custom properties (--electric-blue, --neon-purple, etc.)
+- Use Montserrat for headings, Open Sans for body text
+- Design is dark cyber-aesthetic with neon accents
+- All user-facing text is in Spanish

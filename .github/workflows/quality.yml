@@ -11,7 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Check HTML validity
         uses: Cyb3r-Jak/html-validate-action@v2
         with:
           path: .
+      - name: Check for broken links
+        run: |
+          npm install -g hyperlink
+          hyperlink https://oscarlugocar-lang.github.io/dreamscape-landing1/ --recursive --internal || true
+      - name: npm audit (auth)
+        working-directory: auth
+        run: npm audit --audit-level=high || true
+      - name: npm audit (payments)
+        working-directory: payments
+        run: npm audit --audit-level=high || true

@@ -6,12 +6,14 @@ echo "Deploying Dreamscape to $ENV environment..."
 
 case "$ENV" in
   production)
-    echo "Target: GitHub Pages (production)"
-    echo "Push to main triggers automatic deploy via GitHub Actions"
+    echo "Pushing to main to trigger GitHub Actions deploy..."
+    git push origin main
+    echo "Deploy triggered. Check: https://github.com/oscarlugocar-lang/dreamscape-landing1/actions"
     ;;
   staging)
-    echo "Target: GitHub Pages (staging branch)"
-    echo "Push to staging triggers preview deploy"
+    echo "Pushing to staging branch to trigger preview deploy..."
+    git push origin staging
+    echo "Deploy triggered for staging."
     ;;
   *)
     echo "Unknown environment: $ENV"

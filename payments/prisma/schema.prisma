@@ -11,11 +11,14 @@ model Customer {
   id            String         @id @default(cuid())
   email         String         @unique
   name          String?
-  stripeId      String?        @map("stripe_id")
+  stripeId      String?        @unique @map("stripe_id")
+  userId        String?        @map("user_id")
   subscriptions Subscription[]
   createdAt     DateTime       @default(now()) @map("created_at")
   updatedAt     DateTime       @updatedAt @map("updated_at")
 
+  @@index([stripeId])
+  @@index([userId])
   @@map("customers")
 }
 
@@ -27,12 +30,15 @@ model Subscription {
   status         String
   priceId        String    @map("price_id")
   plan           String
+  trialStart     DateTime? @map("trial_start")
+  trialEnd       DateTime? @map("trial_end")
   currentPeriodStart DateTime @map("current_period_start")
   currentPeriodEnd   DateTime @map("current_period_end")
   cancelAtPeriodEnd  Boolean  @default(false) @map("cancel_at_period_end")
   createdAt      DateTime  @default(now()) @map("created_at")
   updatedAt      DateTime  @updatedAt @map("updated_at")
 
+  @@index([customerId])
   @@map("subscriptions")
 }
 

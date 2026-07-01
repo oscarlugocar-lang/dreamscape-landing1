@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.git": true
+  },
+  "workbench.colorTheme": "Default Dark+",
+  "html.format.wrapLineLength": 0,
+  "liveServer.settings.root": "/",
+  "liveServer.settings.port": 5500
+}

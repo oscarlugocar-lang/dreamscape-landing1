@@ -42,8 +42,8 @@ const stripe = Stripe('pk_test_PLACEHOLDER');
 const API = 'https://dreamscape-payments.vercel.app';
 
 const PLANS = [
-  { id: 'basic', name: 'Básico', price: '€299/mes', priceId: '', desc: '50h/mes · Automatización · Soporte Email' },
-  { id: 'pro', name: 'Profesional', price: '€799/mes', priceId: '', desc: '200h/mes · Análisis Avanzado · Soporte Prioritario' },
+  { id: 'basic', name: 'Básico', price: '€299/mes', priceId: 'price_basic_monthly', desc: '50h/mes · Automatización · Soporte Email' },
+  { id: 'pro', name: 'Profesional', price: '€799/mes', priceId: 'price_pro_monthly', desc: '200h/mes · Análisis Avanzado · Soporte Prioritario' },
 ];
 
 let selected = null;

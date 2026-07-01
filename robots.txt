@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://oscarlugocar-lang.github.io/dreamscape-landing1/sitemap.xml

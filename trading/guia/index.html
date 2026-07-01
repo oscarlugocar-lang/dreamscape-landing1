@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Guía Gratis — Opciones Binarias para Principiantes | BinaryBoost</title>
+<meta name="description" content="Descargá la guía completa para empezar en opciones binarias desde cero. Incluye acceso a cuenta demo en IQ Option.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oscarlugocar-lang.github.io/dreamscape-landing1/trading/guia/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#050508;--card:#0d0d1a;--text:#f0f0f5;--text2:#8888aa;--blue:#00ffff;--purple:#bf00ff;--green:#39ff14;--border:rgba(255,255,255,.06);--g1:linear-gradient(135deg,#00ffff,#bf00ff);--font:'Inter',sans-serif;--mono:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;-webkit-font-smoothing:antialiased;padding:24px}
+::selection{background:var(--purple);color:#fff}
+.container{max-width:520px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:48px 36px;text-align:center;position:relative;overflow:hidden}
+.container::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--g1)}
+.emoji{font-size:48px;margin-bottom:16px;display:block}
+h1{font-size:28px;letter-spacing:-.03em;margin-bottom:8px}
+h1 span{background:var(--g1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+p{color:var(--text2);font-size:14px;line-height:1.7;margin-bottom:24px}
+.benefits{text-align:left;margin-bottom:28px;display:grid;gap:10px}
+.benefits div{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text2)}
+.benefits .check{color:var(--green);font-weight:700}
+form{display:grid;gap:10px}
+input{padding:14px 16px;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);font-size:14px;outline:none;transition:border-color .2s;font-family:var(--font)}
+input:focus{border-color:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:6px;border:none;cursor:pointer;font-weight:700;font-size:14px;background:var(--g1);color:#000;transition:transform .2s,box-shadow .2s;font-family:var(--mono);text-transform:uppercase;letter-spacing:.5px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(0,255,255,.2)}
+.btn:active{transform:scale(.97)}
+.secure{font-size:11px;color:var(--text2);margin-top:16px;opacity:.6}
+#form-msg{font-size:13px;margin-top:8px;display:none;font-family:var(--mono)}
+</style>
+</head>
+<body>
+<div class="container">
+<span class="emoji">📘</span>
+<h1>Guía Completa de <span>Opciones Binarias</span></h1>
+<p>Aprendé desde cero: cómo funciona, cómo empezar, cómo usar la cuenta demo y dar tu primer paso en IQ Option.</p>
+<div class="benefits">
+<div><span class="check">✓</span> Explicación paso a paso sin jerga técnica</div>
+<div><span class="check">✓</span> Acceso a cuenta demo con $10,000 virtuales</div>
+<div><span class="check">✓</span> Estrategias básicas para principiantes</div>
+<div><span class="check">✓</span> Tips para evitar errores comunes</div>
+</div>
+<form id="lead-form" action="https://formspree.io/f/your_form_id" method="POST">
+<input type="text" name="nombre" placeholder="Tu nombre" required>
+<input type="email" name="email" placeholder="tu@email.com" required>
+<button type="submit" class="btn">Descargar Guía Gratis</button>
+</form>
+<div id="form-msg"></div>
+<p class="secure">🔒 No compartimos tu email. Podés darte de baja cuando quieras.</p>
+</div>
+<script>
+document.getElementById('lead-form').addEventListener('submit',async function(e){
+  e.preventDefault();const btn=this.querySelector('button'),msg=document.getElementById('form-msg');
+  btn.disabled=true;btn.textContent='Enviando...';msg.style.display='none';
+  try{
+    const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    if(r.ok){
+      msg.style.display='block';msg.style.color='var(--green)';msg.textContent='✓ Revisá tu email. Te enviamos la guía.';this.reset();
+      if(typeof fbq==='function')fbq('track','Lead');
+      if(typeof gtag==='function')gtag('event','conversion');
+    } else throw Error();
+  }catch(e){msg.style.display='block';msg.style.color='var(--purple)';msg.textContent='✗ Error. Intentá de nuevo.'}
+  finally{btn.disabled=false;btn.textContent='Descargar Guía Gratis'}
+});
+</script>
+</body>
+</html>

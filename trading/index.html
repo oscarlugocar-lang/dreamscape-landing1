@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BinaryBoost - Inicia en Opciones Binarias con IQ Option | Guía para Principiantes</title>
+<meta name="description" content="Descubre cómo empezar en opciones binarias. Guía simplificada para operar en IQ Option desde cero. Cuenta demo gratuita incluida.">
+<meta property="og:title" content="BinaryBoost - Inicia en Opciones Binarias con IQ Option">
+<meta property="og:description" content="Guía simplificada para empezar en trading desde cero.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop&q=80">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oscarlugocar-lang.github.io/dreamscape-landing1/trading/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📈</text></svg>">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Curso de Opciones Binarias para Principiantes","description":"Guía simplificada para empezar en IQ Option","provider":{"@type":"Organization","name":"BinaryBoost"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0A0A0A;--text:#FAFAFA;--text-sec:#A1A1AA;--green:#22C55E;--gold:#D4AF37;--border:rgba(255,255,255,.1);--radius:16px}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+
+.skip-link{position:absolute;top:-100px;left:16px;z-index:1000;padding:12px 20px;background:var(--green);color:#000;font-weight:700;border-radius:8px;transition:top .2s}
+.skip-link:focus{top:16px}
+
+nav{position:fixed;top:0;width:100%;z-index:100;padding:16px 0;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.05em}
+.logo span{color:var(--green)}
+.nav-cta{background:var(--gold);color:var(--bg);padding:10px 22px;border-radius:999px;font-weight:600;font-size:14px;transition:transform .15s,background .2s}
+.nav-cta:hover{background:#e7c35a}
+.nav-cta:active{transform:scale(.95)}
+
+.btn{display:inline-block;font-weight:600;font-size:16px;padding:14px 32px;border-radius:999px;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s;text-align:center}
+.btn:active{transform:scale(.97)}
+.btn-green{background:var(--green);color:#fff;box-shadow:0 0 20px rgba(34,197,94,.3)}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(34,197,94,.5)}
+.btn-gold{background:var(--gold);color:var(--bg)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-outline{background:transparent;border:2px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--green)}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;position:relative;overflow:hidden;text-align:center}
+#mesh{position:absolute;inset:0;z-index:0;opacity:.25}
+.hero .container{position:relative;z-index:1}
+.tagline{display:inline-block;padding:8px 18px;background:rgba(212,175,55,.1);color:var(--gold);border:1px solid rgba(212,175,55,.3);border-radius:999px;font-size:14px;font-weight:500;margin-bottom:20px}
+.hero h1{font-size:clamp(36px,7vw,72px);line-height:1.05;letter-spacing:-.04em;max-width:14ch;margin:0 auto}
+.hero h1 span{background:linear-gradient(90deg,var(--green),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{max-width:55ch;margin:20px auto 32px;color:var(--text-sec);font-size:18px;line-height:1.6}
+.hero-sub{color:var(--text-sec);font-size:13px;margin-top:12px}
+
+.counter-bar{display:flex;justify-content:center;gap:40px;margin:30px auto 0;flex-wrap:wrap}
+.counter-item{text-align:center}
+.counter-num{font-size:28px;font-weight:800;color:var(--green)}
+.counter-label{font-size:12px;color:var(--text-sec);text-transform:uppercase;letter-spacing:1px}
+
+.section{padding:80px 0}
+.section-alt{background:#050505}
+.section-header{text-align:center;margin-bottom:48px}
+.section-header h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;margin-bottom:12px}
+.section-header p{max-width:55ch;margin:0 auto;color:var(--text-sec)}
+
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{background:#111;border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:transform .3s,border-color .3s;position:relative}
+.card:hover{transform:translateY(-4px);border-color:rgba(34,197,94,.3)}
+.card-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px}
+.card-icon.green{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2)}
+.card-icon.gold{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2)}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{color:var(--text-sec);font-size:14px;line-height:1.6}
+
+.steps{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px}
+.steps-image img{width:100%;border-radius:var(--radius);border:1px solid var(--border)}
+.step{position:relative;padding-left:48px;margin-bottom:28px}
+.step:last-child{margin-bottom:0}
+.step-num{position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.step h4{font-size:17px;margin-bottom:4px}
+.step p{color:var(--text-sec);font-size:14px}
+
+.marquee-wrap{position:relative;overflow:hidden}
+.marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;width:120px;height:100%;z-index:2;pointer-events:none}
+.marquee-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.marquee-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.marquee{display:flex;gap:16px;width:max-content;animation:scroll 40s linear infinite}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.t-card{background:#111;border:1px solid var(--border);border-radius:var(--radius);padding:20px;width:340px;flex-shrink:0}
+.t-card img{width:44px;height:44px;border-radius:50%;margin-right:12px;border:2px solid var(--border)}
+.t-card .author{display:flex;align-items:center;margin-bottom:12px}
+.t-card .author div{font-size:14px;font-weight:600}
+.t-card .author span{font-size:12px;color:var(--text-sec);display:block}
+.t-card blockquote{font-size:14px;line-height:1.6;color:var(--text-sec);border-left:2px solid var(--green);padding-left:14px;font-style:italic}
+
+.faq{margin-top:32px}
+.faq summary{padding:16px 20px;background:#111;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;font-weight:600;font-size:15px;transition:border-color .2s;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::after{content:'+';font-size:20px;color:var(--green);transition:transform .2s}
+.faq details[open] summary{border-color:var(--green);border-radius:var(--radius) var(--radius) 0 0}
+.faq details[open] summary::after{content:'−'}
+.faq .content{padding:16px 20px;border:1px solid var(--border);border-top:0;border-radius:0 0 var(--radius) var(--radius);color:var(--text-sec);font-size:14px;line-height:1.6}
+.faq details+details{margin-top:8px}
+
+.cta-section{text-align:center;padding:100px 0}
+.cta-section h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;margin-bottom:16px;max-width:16ch;margin-left:auto;margin-right:auto}
+.cta-section p{color:var(--text-sec);margin-bottom:28px}
+
+.lead-form{max-width:440px;margin:20px auto 0;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.lead-form input{flex:1;min-width:200px;padding:14px 18px;border-radius:999px;border:1px solid var(--border);background:#111;color:#fff;font-size:14px;outline:none;transition:border-color .2s}
+.lead-form input:focus{border-color:var(--green)}
+.lead-form .btn{padding:14px 24px;font-size:14px}
+#form-msg{text-align:center;font-size:13px;margin-top:8px;display:none}
+
+footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;color:var(--text-sec);font-size:13px}
+footer a{color:var(--green)}
+footer .logo{font-size:18px;margin-bottom:8px;display:block;color:var(--text-sec)}
+footer .legal{display:flex;justify-content:center;gap:16px;margin:12px 0;flex-wrap:wrap}
+footer .legal a{color:var(--text-sec);font-size:12px}
+
+[data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+[data-reveal].show{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  .container{padding:0 16px}
+  .hero h1{font-size:32px}
+  .steps{grid-template-columns:1fr}
+  .steps-image{margin-bottom:24px}
+  .counter-bar{gap:20px}
+  .t-card{width:280px}
+  .marquee-wrap::before,.marquee-wrap::after{width:40px}
+  .lead-form{flex-direction:column}
+  .lead-form input{min-width:auto}
+}
+@media(max-width:480px){
+  .hero{padding:100px 0 40px}
+  .section{padding:48px 0}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Ir al contenido</a>
+
+<nav>
+  <div class="container">
+    <div class="logo">Binary<span>Boost</span></div>
+    <a href="https://affiliate.iqoption.net/redir/?aff=155995&aff_model=revenue&afftrack=" class="nav-cta" rel="noopener noreferrer" target="_blank">Crear Cuenta</a>
+  </div>
+</nav>
+
+<main id="main">
+  <section class="hero">
+    <canvas id="mesh"></canvas>
+    <div class="container">
+      <div class="tagline" data-reveal>Exclusivo para nuevos traders</div>
+      <h1 data-reveal style="transition-delay:.1s">El Futuro del Trading, <span>Simplificado Para Ti</span></h1>
+      <p data-reveal style="transition-delay:.2s">Deja de adivinar. Te mostramos el camino para iniciarte en Opciones Binarias con la plataforma líder.</p>
+      <a href="https://affiliate.iqoption.net/redir/?aff=155995&aff_model=revenue&afftrack=" class="btn btn-green" data-reveal style="transition-delay:.3s" rel="noopener noreferrer" target="_blank">Empezar Ahora Mismo</a>
+      <p class="hero-sub" data-reveal style="transition-delay:.4s">Apertura de cuenta 100% gratis</p>
+      <div class="counter-bar" data-reveal style="transition-delay:.5s">
+        <div class="counter-item"><div class="counter-num"><span id="users-count">0</span>+</div><div class="counter-label">Usuarios Activos</div></div>
+        <div class="counter-item"><div class="counter-num"><span id="demo-count">0</span>+</div><div class="counter-label">Cuentas Demo</div></div>
+        <div class="counter-item"><div class="counter-num">4.8★</div><div class="counter-label">Valoración</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <h2>Todo lo que necesitas, sin complicaciones</h2>
+        <p>Diseñado para que entiendas y operes desde el primer día. Sin jerga técnica.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card" data-reveal style="transition-delay:.1s">
+          <div class="card-icon green">📖</div>
+          <h3>Explicaciones Claras</h3>
+          <p>Te guiamos paso a paso. Aprende los conceptos básicos en minutos, no en semanas.</p>
+        </div>
+        <div class="card" data-reveal style="transition-delay:.2s">
+          <div class="card-icon gold">📱</div>
+          <h3>Plataforma Intuitiva</h3>
+          <p>IQ Option es reconocida por su facilidad de uso. Ideal para principiantes.</p>
+        </div>
+        <div class="card" data-reveal style="transition-delay:.3s">
+          <div class="card-icon green">💰</div>
+          <h3>Inicia con Poco</h3>
+          <p>Sin mínimo alto. Cuenta demo con $10,000 virtuales para practicar sin riesgo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="steps">
+        <div class="steps-image" data-reveal>
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=600&fit=crop&q=80" alt="Persona usando IQ Option" loading="lazy">
+        </div>
+        <div data-reveal style="transition-delay:.2s">
+          <div class="section-header" style="text-align:left;margin-bottom:32px">
+            <h2>En 3 pasos estarás operando</h2>
+            <p>Hemos simplificado el proceso al máximo.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">1</div>
+            <h4>Regístrate Gratis</h4>
+            <p>Crea tu cuenta en IQ Option en 2 minutos.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h4>Practica sin Riesgo</h4>
+            <p>Usa la cuenta demo con $10,000 virtuales antes de invertir.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h4>Haz tu Primer Depósito</h4>
+            <p>Cuando te sientas listo, empieza a operar con dinero real.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container section-header" data-reveal>
+      <h2>Lo que dicen nuestros traders</h2>
+      <p>Miles de personas han empezado su camino con BinaryBoost.</p>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee" id="testimonials-marquee"></div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <h2>Preguntas Frecuentes</h2>
+        <p>Resolvemos tus dudas antes de empezar.</p>
+      </div>
+      <div class="faq" data-reveal>
+        <details>
+          <summary>¿Necesito experiencia previa?</summary>
+          <div class="content">No. Esta guía está diseñada para personas sin ningún conocimiento de trading. Empezarás desde cero.</div>
+        </details>
+        <details>
+          <summary>¿Cuánto dinero necesito para empezar?</summary>
+          <div class="content">Puedes empezar con la cuenta demo sin depositar nada. Cuando decidas operar en vivo, IQ Option permite depósitos desde $10.</div>
+        </details>
+        <details>
+          <summary>¿Es seguro IQ Option?</summary>
+          <div class="content">IQ Option es una plataforma regulada con millones de usuarios a nivel mundial. Opera bajo licencia internacional.</div>
+        </details>
+        <details>
+          <summary>¿Puedo perder dinero?</summary>
+          <div class="content">Sí, el trading conlleva riesgo. Recomendamos practicar con la cuenta demo y nunca invertir dinero que no puedas perder.</div>
+        </details>
+        <details>
+          <summary>¿Cómo recibo soporte?</summary>
+          <div class="content">Ofrecemos guía por email para nuestros afiliados. Escríbenos a latamdreamscape@gmail.com.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container" data-reveal>
+      <h2>¿Listo para dar el primer paso?</h2>
+      <p>Tu oportunidad empieza ahora. Sin compromiso, sin riesgo.</p>
+      <div style="margin-bottom:24px">
+        <a href="https://affiliate.iqoption.net/redir/?aff=155995&aff_model=revenue&afftrack=" class="btn btn-green" rel="noopener noreferrer" target="_blank">Abrir Cuenta Gratis</a>
+      </div>
+      <p style="font-size:13px;color:var(--text-sec);margin-bottom:24px">O déjanos tu email y te enviamos la guía completa:</p>
+      <form class="lead-form" id="lead-form" action="https://formspree.io/f/your_form_id" method="POST">
+        <input type="email" name="email" placeholder="tu@email.com" required>
+        <button type="submit" class="btn btn-gold">Recibir Guía</button>
+      </form>
+      <div id="form-msg"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="logo">Binary<span>Boost</span></div>
+    <div class="legal">
+      <a href="privacy.html">Privacidad</a>
+      <a href="terms.html">Términos</a>
+      <a href="https://oscarlugocar-lang.github.io/dreamscape-landing1/">Dreamscape</a>
+    </div>
+    <p>© 2026 BinaryBoost. Todos los derechos reservados.</p>
+    <p>Este sitio es un afiliado promocional. Invierte de forma responsable. El trading con opciones binarias conlleva riesgo de pérdida de capital.</p>
+  </div>
+</footer>
+
+<div id="gdpr-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#111;border-top:1px solid var(--border);padding:16px 24px;display:none;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+  <span style="color:#ccc;font-size:13px">🍪 Usamos cookies esenciales y analytics para mejorar tu experiencia.</span>
+  <button id="gdpr-accept" style="padding:8px 20px;background:var(--green);color:#fff;border:none;border-radius:999px;font-weight:600;cursor:pointer">Aceptar</button>
+</div>
+
+<script defer data-domain="oscarlugocar-lang.github.io/dreamscape-landing1" src="https://plausible.io/js/script.js"></script>
+<script>
+// Mesh gradient
+const c=document.getElementById('mesh'),ctx=c.getContext('2d');
+let W,H;
+function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;c.style.width=W+'px';c.style.height=H+'px'}
+window.addEventListener('resize',resize);resize();
+class Blob{constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*200+150;this.colors=[{r:34,g:197,b:94},{r:212,g:175,b:55},{r:10,g:10,b:10},{r:50,g:50,b:50}];this.c=this.colors[Math.floor(Math.random()*this.colors.length)]}
+update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1}
+draw(){let g=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r);g.addColorStop(0,`rgba(${this.c.r},${this.c.g},${this.c.b},1)`);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill()}}
+let blobs=[...Array(4)].map(()=>new Blob);
+function anim(){ctx.clearRect(0,0,W,H);blobs.forEach(b=>{b.update();b.draw()});requestAnimationFrame(anim)}
+anim();
+
+// Counters
+function animateCount(el,target){let current=0,step=Math.ceil(target/80);let i=setInterval(()=>{current+=step;if(current>=target){current=target;clearInterval(i)}el.textContent=current.toLocaleString()},25)}
+setTimeout(()=>{animateCount(document.getElementById('users-count'),2847);animateCount(document.getElementById('demo-count'),12530)},600);
+
+// Testimonials (JS-generated, no duplication)
+const testimonials=[
+{name:'Javier M.',role:'Estudiante',img:'https://i.pravatar.cc/150?u=1',text:'Tenía cero experiencia. Esta guía me lo explicó tan sencillo que en un fin de semana ya operaba en demo.'},
+{name:'Sofía R.',role:'Diseñadora',img:'https://i.pravatar.cc/150?u=2',text:'IQ Option es súper intuitiva. Entendí todo sin tutoriales complicados. 100% recomendada.'},
+{name:'Carlos G.',role:'Empleado',img:'https://i.pravatar.cc/150?u=3',text:'Empecé con depósito mínimo y ha sido genial para ingreso extra. La clave es la simplicidad.'},
+{name:'Lucía F.',role:'Marketing',img:'https://i.pravatar.cc/150?u=4',text:'La claridad de la información y practicar sin riesgo me convencieron. Excelente punto de partida.'},
+{name:'Andrés P.',role:'Ingeniero',img:'https://i.pravatar.cc/150?u=5',text:'En un mes pasé de no saber nada a operar con confianza. La cuenta demo es clave.'},
+{name:'María L.',role:'Docente',img:'https://i.pravatar.cc/150?u=6',text:'Siempre pensé que el trading era complicado. BinaryBoost me demostró lo contrario.'},
+];
+const mq=document.getElementById('testimonials-marquee');
+function buildMarquee(){
+  let html='';
+  for(let r=0;r<2;r++){
+    testimonials.forEach(t=>{html+=`<div class="t-card"><div class="author"><img src="${t.img}" alt="${t.name}" loading="lazy"><div>${t.name}<span>${t.role}</span></div></div><blockquote>"${t.text}"</blockquote></div>`});
+  }
+  mq.innerHTML=html;
+}
+buildMarquee();
+
+// Lead form
+document.getElementById('lead-form').addEventListener('submit',async function(e){
+  e.preventDefault();const btn=this.querySelector('button'),msg=document.getElementById('form-msg');
+  btn.disabled=true;btn.textContent='Enviando...';msg.style.display='none';
+  try{
+    const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    if(r.ok){msg.style.display='block';msg.style.color='var(--green)';msg.textContent='✓ Revisa tu email. Te enviamos la guía.';this.reset()}
+    else throw Error();
+  }catch(e){msg.style.display='block';msg.style.color='var(--gold)';msg.textContent='✗ Error. Intenta de nuevo.'}
+  finally{btn.disabled=false;btn.textContent='Recibir Guía'}
+});
+
+// GDPR
+if(!localStorage.getItem('gdpr-consent')){
+  document.getElementById('gdpr-banner').style.display='flex';
+  document.getElementById('gdpr-accept').onclick=function(){localStorage.setItem('gdpr-consent','true');document.getElementById('gdpr-banner').style.display='none';};
+}
+
+// Scroll reveal
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.1});
+document.querySelectorAll('[data-reveal]').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

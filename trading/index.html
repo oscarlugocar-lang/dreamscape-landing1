@@ -11,35 +11,14 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow">
-<meta name="google-site-verification" content="REEMPLAZAR_CON_TU_CODIGO" />
-<meta name="msvalidate.01" content="REEMPLAZAR_CON_TU_CODIGO" />
+<!-- Google Search Console — agregar código de verificación cuando esté disponible -->
+<!-- Bing Webmaster Tools — agregar código de verificación cuando esté disponible -->
 <link rel="canonical" href="https://oscarlugocar-lang.github.io/dreamscape-landing1/trading/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Curso de Opciones Binarias","description":"Guía para empezar en IQ Option","provider":{"@type":"Organization","name":"BinaryBoost"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
-<!-- TRACKING PIXELS -->
-<script>
-// CONFIGURACIÓN — Reemplazar con tus IDs reales
-const PIXEL = {
-  fb: '000000000000000', // Facebook Pixel ID
-  gads: 'AW-000000000',  // Google Ads ID
-  ga4: 'G-0000000000',   // Google Analytics 4 ID
-  gadsConvLabel: 'XXXXXXXX', // Google Ads conversion label
-};
-</script>
-<!-- Facebook Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', PIXEL.fb);
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=000000000000000&ev=PageView&noscript=1"/></noscript>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0000000000"></script>
-<script>
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());
-gtag('config', PIXEL.ga4);
-gtag('config', PIXEL.gads);
-</script>
+<!-- TRACKING — Plausible (activo) + FB Pixel / Google (requieren IDs reales) -->
+<script defer data-domain="oscarlugocar-lang.github.io/dreamscape-landing1" src="https://plausible.io/js/script.js"></script>
+<script>window.PIXEL={fb:'',gads:'',ga4:'',gadsConvLabel:''};</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -430,18 +409,13 @@ footer p{color:var(--text3);font-size:12px;line-height:1.6}
   <button id="gdpr-accept" style="padding:6px 16px;background:var(--g1);color:#000;border:none;border-radius:4px;font-weight:700;cursor:pointer;font-size:12px;font-family:var(--mono)">Aceptar</button>
 </div>
 
-<script defer data-domain="oscarlugocar-lang.github.io/dreamscape-landing1" src="https://plausible.io/js/script.js"></script>
 <script>
 // Event tracking helper
 function trackClick(label){
-  // Plausible
   if(window.plausible)plausible('Click',{props:{label}});
-  // Facebook Pixel
   if(typeof fbq==='function')fbq('track','CustomEvent',{event_label:label});
-  // Google Ads
-  if(typeof gtag==='function')gtag('event','conversion',{send_to:PIXEL.gads+'/'+PIXEL.gadsConvLabel,event_label:label});
+  if(typeof gtag==='function'&&PIXEL.gads)gtag('event','conversion',{send_to:PIXEL.gads+'/'+PIXEL.gadsConvLabel,event_label:label});
 }
-// Track all affiliate links
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('a[href*="affiliate.iqoption"]').forEach(a=>{
     a.addEventListener('click',function(){trackClick('affiliate_link')});
@@ -498,7 +472,7 @@ document.getElementById('lead-form').addEventListener('submit',async function(e)
     if(r.ok){
       msg.style.display='block';msg.style.color='var(--green)';msg.textContent='✓ Revisá tu mail. Te llegó la guía.';this.reset();
       if(typeof fbq==='function')fbq('track','Lead');
-      if(typeof gtag==='function')gtag('event','conversion',{send_to:PIXEL.gads+'/'+PIXEL.gadsConvLabel});
+      if(typeof gtag==='function'&&PIXEL.gads)gtag('event','conversion',{send_to:PIXEL.gads+'/'+PIXEL.gadsConvLabel});
       if(window.plausible)plausible('Lead',{props:{source:'trading_guia'}});
     } else throw Error();
   }catch(e){msg.style.display='block';msg.style.color='var(--pink)';msg.textContent='✗ Error. Intentá de nuevo.'}

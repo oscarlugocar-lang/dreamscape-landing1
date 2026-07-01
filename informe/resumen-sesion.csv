@@ -1,0 +1,38 @@
+Categoria,Item,Archivo,Estado,Detalle
+PROYECTO,Dreamscape Landing Page,index.html,COMPLETADO,Landing principal estilo Hostinger para Dreamscape (IA edicion video)
+PROYECTO,BinaryBoost Trading Page,trading/index.html,COMPLETADO,Landing cyberpunk neon para opciones binarias IQ Option
+PROYECTO,Guia de Leads,trading/guia/index.html,COMPLETADO,Landing captura de email con formulario
+PROYECTO,Producto Digital,trading/producto/index.html,COMPLETADO,Pagina de venta guia PDF $9 USD con boton PayPal
+PROYECTO,Gracias Compra,trading/producto/gracias.html,COMPLETADO,Pagina post-compra con instrucciones
+TRACKING,Facebook Pixel,trading/index.html,PLACEHOLDER,ID: 000000000000000 - Reemplazar
+TRACKING,Google Ads,trading/index.html,PLACEHOLDER,ID: AW-000000000 - Reemplazar
+TRACKING,Google Analytics GA4,trading/index.html,PLACEHOLDER,ID: G-0000000000 - Reemplazar
+TRACKING,Plausible Analytics,trading/index.html,COMPLETADO,Eventos custom Click y Lead
+TRACKING,Click Tracking,trading/index.html,COMPLETADO,Todos los links afiliado trackeados
+SEO,Sitemap raiz,sitemap.xml,COMPLETADO,Para Google Search Console
+SEO,Sitemap trading,trading/sitemap.xml,COMPLETADO,13 URLs indexables
+SEO,Robots raiz,robots.txt,COMPLETADO,Apunta al sitemap
+SEO,Robots trading,trading/robots.txt,COMPLETADO,Apunta al sitemap
+SEO,Verificacion Search Console,trading/index.html,PLACEHOLDER,Google + Bing tags - Reemplazar
+SEO,Blog Index,trading/blog/index.html,COMPLETADO,Indice con 8 articulos
+SEO,Articulo 1,trading/blog/empezar-en-opciones-binarias.html,COMPLETADO,Guia completa desde cero
+SEO,Articulo 2,trading/blog/iq-option-principiantes.html,COMPLETADO,Guia de IQ Option
+SEO,Articulo 3,trading/blog/errores-comunes-trading.html,COMPLETADO,5 errores comunes
+SEO,Articulo 4,trading/blog/ganar-dinero-opciones-binarias.html,COMPLETADO,Cuanto se puede ganar
+SEO,Articulo 5,trading/blog/estrategias-basicas-trading.html,COMPLETADO,Estrategias basicas
+SEO,Articulo 6,trading/blog/opciones-binarias-vs-forex.html,COMPLETADO,Comparativa binarias vs forex
+SEO,Articulo 7,trading/blog/iq-option-vs-otras.html,COMPLETADO,IQ Option vs otras plataformas
+SEO,Articulo 8,trading/blog/gestion-de-riesgo.html,COMPLETADO,Reglas de gestion de riesgo
+CROSS-LINKING,Nav Dreamscape,index.html,COMPLETADO,Link verde BinaryBoost en menu
+CROSS-LINKING,Footer Dreamscape,index.html,COMPLETADO,Link a trading page en footer
+MARKETING,Ad Copy,trading/ads/README.md,COMPLETADO,Textos para Facebook/Google/TikTok
+MARKETING,Ad FB Square,trading/ads/creatives/fb-ad-square.png,COMPLETADO,Imagen 1080x1080 con particle network
+MARKETING,Ad Story,trading/ads/creatives/insta-story.png,COMPLETADO,Imagen 1080x1920 para Instagram/TikTok
+MARKETING,Ad Banner,trading/ads/creatives/banner-ad.png,COMPLETADO,Banner 728x90
+MARKETING,Email Secuencia,trading/email-seq/README.md,COMPLETADO,5 emails automatizados
+CONTACTO,WhatsApp Flotante,trading/index.html,COMPLETADO,Boton verde +573011822651
+PAYPAL,Producto Digital,trading/producto/index.html,PLACEHOLDER,Reemplazar TU_EMAIL_PAYPAL@GMAIL.COM
+FORMULARIO,Formspree,trading/index.html,PLACEHOLDER,Reemplazar your_form_id
+FORMULARIO,Formspree Guia,trading/guia/index.html,PLACEHOLDER,Reemplazar your_form_id
+LOGS,Resumen Sesion,informe/resumen-sesion.csv,COMPLETADO,Este archivo
+LOGS,Retomar Sesion,_SESSION_RESUME.md,COMPLETADO,Instrucciones para continuar
